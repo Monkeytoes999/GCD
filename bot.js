@@ -856,6 +856,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				});
 				break;
 			case 'userInfo':
+				bot.addServerEmoji({
+				    serverID: serverID,
+				    name: 'Test',
+				    image: bot.users[userID].avatar
+				}, function(err, res){
+					console.log(err)
+					console.log(res)
+				});
 				let play = 'Nothing'
 				let uss = userID
 				if (message.length == 31){
