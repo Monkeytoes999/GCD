@@ -856,9 +856,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'userInfo':
 				let play = 'Nothing'
 				let uss = userID
-				if (message.length = 31){
+				if (message.length == 31){
 					uss = message.substring(12, 30)
-				} else  if (message.length = 31){
+				} else  if (message.length == 31){
 					uss = message.substring(13, 31)
 				}
 				member = bot.servers[serverID].members[uss];
