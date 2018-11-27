@@ -825,6 +825,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						roleID: '491801015436181504'
 					});
 				}
+				let toppRole = 0;
+				let toppRoleID = serverID;
+				for (var iooof = 0; iooof < bot.servers[serverID].roles.length; iooof++){
+					if (bot.servers[serverID].roles[member.roles[iooof]].position > toppRole && (bot.users[bot.servers[serverID].roles[member.roles[iooof]].id] == undefined)){
+						toppRole = bot.servers[serverID].roles[member.roles[iooof]].position
+						toppRoleID = bot.servers[serverID].roles[member.roles[iooof]].id
+					}
+				}
+				console.log(toppRole)
+				console.log(toppRoleID)
 				break;
 			case 'guildLink':
 				bot.sendMessage({
@@ -1568,11 +1578,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				if (!bot.directMessages[channelID] && serverID != '264445053596991498'){
 					for (var oqo = 0; oqo < servRK.length; oqo++){
 							if (serverID == servRK[oqo]){
-								console.log(commRK[oqo])
-								console.log(message.substring(1))
-								console.log(commRK[oqo] == message.substring(1))
 								if (message.substring(1) == commRK[oqo]){
-									console.log('It is this not that')
 									bot.addToRole({
 										serverID: serverID,
 										userID: userID,
