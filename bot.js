@@ -856,7 +856,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'userInfo':
 				bot.sendMessage({
 					to: channelID,
-					message: '```prolog\nUsername: ' + user + '#' + bot.users[userID].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status + ' \nUser is a bot: ' + bot.users[userID].bot + '\nPlaying: ' + bot.users[userID].game.name + '```',
+					message: '```prolog\nUsername: ' + user + '#' + bot.users[userID].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + bot.users[userID].bot + '\nPlaying: ' + bot.users[userID].game.name.toUpperCase + '```',
 					embed: {
 						color: 65280,
 						title: 'Avatar: ',
