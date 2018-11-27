@@ -827,19 +827,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				let toppRole = 0;
 				let toppRoleID = serverID;
-				let iooof = 0;
-				for (iooof = 0; iooof < bot.servers[serverID].roles.length; iooof++){
-					if (bot.servers[serverID].roles[member.roles[iooof]].position > toppRole && (bot.users[bot.servers[serverID].roles[member.roles[iooof]].id] == undefined)){
-						toppRole = bot.servers[serverID].roles[member.roles[iooof]].position
-						toppRoleID = bot.servers[serverID].roles[member.roles[iooof]].id
+				let iaooof = 0;
+				for (iaooof = 0; iaooof < bot.servers[serverID].roles.length; iooof++){
+					if (bot.servers[serverID].roles[member.roles[iaooof]].position > toppRole && (bot.users[bot.servers[serverID].roles[member.roles[iaooof]].id] == undefined)){
+						toppRole = bot.servers[serverID].roles[member.roles[iaooof]].position
+						toppRoleID = bot.servers[serverID].roles[member.roles[iaooof]].id
 					}
-					console.log(iooof);
-					console.log(bot.users[bot.servers[serverID].roles[member.roles[iooof]].id]);
+					console.log(iaooof);
+					console.log(bot.users[bot.servers[serverID].roles[member.roles[iaooof]].id]);
 				}
 			case 'guildLink':
 				bot.sendMessage({
 					to: channelID,
-					message: 'Here is an invite to the GCD help server. Come join us! \nhttps://discord.gg/2fYymp'
+					message: 'Here is an invite to the GCD help server. Come join us! \nhttps://discord.gg/aqnzQ4x'
 				});
 				break
 			case 'portalCat':
