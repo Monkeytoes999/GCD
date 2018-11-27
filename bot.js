@@ -854,10 +854,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				});
 				break;
 			case 'userInfo':
-				let statss = 'OFFLINE'
-				if (member.status != undefined){
-					statss = member.status.toUpperCase()
-				}
 				let play = 'Nothing'
 				let uss = userID
 				if (message.length == 31){
@@ -867,6 +863,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				if (bot.users[uss] != null && bot.users[uss] != undefined){
 					member = bot.servers[serverID].members[uss];
+					let statss = 'OFFLINE'
+					if (member.status != undefined){
+						statss = member.status.toUpperCase()
+					}
 					if (bot.users[uss].game != null){
 						play = bot.users[uss].game.name
 					}
