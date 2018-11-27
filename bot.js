@@ -854,6 +854,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				});
 				break;
 			case 'userInfo':
+				let statss = 'OFFLINE'
+				if (member.status != undefined){
+					statss = member.status.toUpperCase()
+				}
 				let play = 'Nothing'
 				let uss = userID
 				if (message.length == 31){
@@ -868,7 +872,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					}
 					bot.sendMessage({
 						to: channelID,
-						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + uss + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + bot.users[uss].bot + '\nPlaying: ' + play + '```',
+						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + uss + '\nStatus: ' + statss + ' \nUser = Bot: ' + bot.users[uss].bot + '\nPlaying: ' + play + '```',
 						embed: {
 							color: 65280,
 							title: 'Avatar: ',
