@@ -839,7 +839,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				console.log(Object.keys(bot.servers[serverID].roles).length)
 				for (let iaooof = 0; iaooof < Object.keys(bot.servers[serverID].roles).length; iaooof++){
 					console.log(iaooof);
-					console.log(bot.users[bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id]);
+					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color);
+					console.log(topBRole)
+					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position)
 					if (bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > toppRole && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color != 0 && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > topBRole){
 						toppRole = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position
 						toppRoleID = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id
