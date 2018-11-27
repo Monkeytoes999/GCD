@@ -861,7 +861,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					embed: {
 						color: 65280,
 						title: 'User Info',
-						description: '```prolog \nUser: ' + user + ' \nID: ' + userID + ' \nJoined: ' + member.joined_at + ' \nRoles: ' + member.roles + ' \nAvatar: ```',
+						fields: [
+							{
+								value: '```prolog \nUser: ' + user + ' \nID: ' + userID + ' \nJoined: ' + member.joined_at + ' \nRoles: ' + member.roles + ' \nAvatar: ```'
+							}
+							],
 						image: {
 							url: 'https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png'
 						}
