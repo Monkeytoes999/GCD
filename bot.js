@@ -827,7 +827,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				let toppRole = 0;
 				let toppRoleID = serverID;
-				console.log(bot.servers[serverID].roles)
+				console.log(bot.servers[serverID].roles.length)
 				for (let iaooof = 0; iaooof < bot.servers[serverID].roles.length; iaooof++){
 					console.log(iaooof);
 					console.log(bot.users[bot.servers[serverID].roles[member.roles[iaooof]].id]);
