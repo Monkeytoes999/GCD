@@ -860,7 +860,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				bot.addServerEmoji({
 				    serverID: serverID,
 				    name: 'Test',
-				    image: bot.users[userID].avatar
+				    image: fs.readFileSync('https://cdn.discordapp.com/avatars/393586279964475393/d8061e9884b47c68b00385b85dce6338.png', 'base64')
 				}, function(err, res){
 					console.log(err)
 					console.log(res)
