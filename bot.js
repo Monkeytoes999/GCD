@@ -825,34 +825,37 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						roleID: '491801015436181504'
 					});
 				}
-				let topBRole = 0;
-				let topBRoleID = serverID;
-				member = bot.servers[serverID].members['495705429150793739']
-				for (var io0oof = 0; io0oof < member.roles.length; io0oof++){
-					if (bot.servers[serverID].roles[member.roles[io0oof]].position > topBRole){
-						topBRole = bot.servers[serverID].roles[member.roles[io0oof]].position
-						topBRoleID = bot.servers[serverID].roles[member.roles[io0oof]].id
-					}
-				}
-				let toppRole = 0;
-				let toppRoleID = serverID;
-				console.log(Object.keys(bot.servers[serverID].roles).length)
-				for (let iaooof = 0; iaooof < Object.keys(bot.servers[serverID].roles).length; iaooof++){
-					console.log(iaooof);
-					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color);
-					console.log(topBRole)
-					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position)
-					if (bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > toppRole && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color != 0 && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > topBRole){
-						toppRole = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position
-						toppRoleID = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id
-					}
-					console.log(toppRoleID)
-				}
-				bot.addToRole({
-					serverID: serverID,
-					userID: userID,
-					roleID: toppRoleID
-				});
+// 				let topBRole = 0;
+// 				let topBRoleID = serverID;
+// 				member = bot.servers[serverID].members['495705429150793739']
+// 				for (var io0oof = 0; io0oof < member.roles.length; io0oof++){
+// 					if (bot.servers[serverID].roles[member.roles[io0oof]].position > topBRole){
+// 						topBRole = bot.servers[serverID].roles[member.roles[io0oof]].position
+// 						topBRoleID = bot.servers[serverID].roles[member.roles[io0oof]].id
+// 					}
+// 				}
+// 				let toppRole = 0;
+// 				let toppRoleID = serverID;
+// 				console.log(Object.keys(bot.servers[serverID].roles).length)
+// 				for (let iaooof = 0; iaooof < Object.keys(bot.servers[serverID].roles).length; iaooof++){
+// 					console.log(iaooof);
+// 					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color);
+// 					console.log(topBRole)
+// 					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position)
+// 					if (bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > toppRole && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color != 0 && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > topBRole){
+// 						toppRole = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position
+// 						toppRoleID = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id
+// 					}
+// 					console.log(toppRoleID)
+// 				}
+// 				bot.addToRole({
+// 					serverID: serverID,
+// 					userID: userID,
+// 					roleID: toppRoleID
+// 				});
+				break;
+			case 'userInfo':
+				console.log(bot.users[userID])
 				break;
 			case 'guildLink':
 				bot.sendMessage({
