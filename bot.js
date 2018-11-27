@@ -858,7 +858,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				console.log(bot.servers[serverID])
 				bot.sendMessage({
 					to: channelID,
-					message: '```prolog \nUser: ' + user + ' \nID: ' + userID + ' \nJoined: ' + member.joined_at + ' \nRoles: ' + member.roles + ' \nAvatar: ```' + '\nhttps://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png'
+					embed: {
+						color: 65280,
+						title: 'User Info',
+						content: '```prolog \nUser: ' + user + ' \nID: ' + userID + ' \nJoined: ' + member.joined_at + ' \nRoles: ' + member.roles + ' \nAvatar: ```',
+						image: {
+							url: 'https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png'
+						}
+					 }
 				});
 				break;
 			case 'guildLink':
