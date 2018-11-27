@@ -856,6 +856,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			case 'userInfo':
 				console.log(bot.servers[serverID])
+				bot.sendMessage({
+					to: channelID,
+					message: '```prolog /nUser: ' + user + ' /nID: ' + userID + ' /nJoined: ' + member.joined_at + ' /nRoles: ' + member.roles + ' /nAvatar: https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png```'
 				break;
 			case 'guildLink':
 				bot.sendMessage({
