@@ -540,6 +540,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		curses.splice(curses.length - 1, 1)
 		nonWordCurses.splice(nonWordCurses.length - 1, 1)
 	}
+	if (!(bot.users[userID] == undefined)){
+	if (!(bot.users[userID].bot)){
 
 
 		if (cussmessage.includes('OWO')){
@@ -1648,4 +1650,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		    // Just add any case commands if you want to..
 		 }
 	    }
+	}
+	}
 });
