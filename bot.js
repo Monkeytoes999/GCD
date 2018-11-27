@@ -855,12 +855,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			case 'userInfo':
 				let play = 'Nothing'
-				if (bot.users[userID].game != null){
-					play = bot.users[userID].game.name
+				let uss = userID
+				if (message.length = 31){
+					uss = message.substring(12, 30)
+				} else  if (message.length = 31){
+					uss = message.substring(13, 31)
+				}
+				member = bot.servers[serverID].members[uss];
+				if (bot.users[uss].game != null){
+					play = bot.users[uss].game.name
 				}
 				bot.sendMessage({
 					to: channelID,
-					message: '```prolog\nUsername: ' + user + '#' + bot.users[userID].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + bot.users[userID].bot + '\nPlaying: ' + play + '```',
+					message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + uss + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + bot.users[uss].bot + '\nPlaying: ' + play + '```',
 					embed: {
 						color: 65280,
 						title: 'Avatar: ',
