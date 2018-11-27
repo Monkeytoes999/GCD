@@ -864,21 +864,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				} else  if (message.length == 32){
 					uss = message.substring(13, 31)
 				}
-				member = bot.servers[serverID].members[uss];
-				if (bot.users[uss].game != null){
-					play = bot.users[uss].game.name
+				if (bot.users[uss] != null && bot.users[uss] != undefined){
+					member = bot.servers[serverID].members[uss];
+					if (bot.users[uss].game != null){
+						play = bot.users[uss].game.name
+					}
+					bot.sendMessage({
+						to: channelID,
+						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + uss + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + bot.users[uss].bot + '\nPlaying: ' + play + '```',
+						embed: {
+							color: 65280,
+							title: 'Avatar: ',
+							image: {
+								url: 'https://cdn.discordapp.com/avatars/' + uss + '/' + bot.users[uss].avatar + '.png'
+							}
+						 }
+					});
 				}
-				bot.sendMessage({
-					to: channelID,
-					message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + uss + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + bot.users[uss].bot + '\nPlaying: ' + play + '```',
-					embed: {
-						color: 65280,
-						title: 'Avatar: ',
-						image: {
-							url: 'https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png'
-						}
-					 }
-				});
 				break;
 			case 'guildLink':
 				bot.sendMessage({
