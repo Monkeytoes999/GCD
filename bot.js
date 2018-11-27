@@ -860,10 +860,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					embed: {
 						color: 65280,
-						title: 'User Info',
 						fields: [
 							{
-								value: '```prolog \nUser: ' + user + ' \nID: ' + userID + ' \nJoined: ' + member.joined_at + ' \nRoles: ' + member.roles + ' \nAvatar: ```'
+								title: 'User Info',
+								value: '```prolog \nUser: ' + user + ' \nID: ' + userID + ' \nJoined at: ' + member.joined_at + ' \nRoles: ' + member.roles + ' \nAvatar: ```'
 							}
 							],
 						image: {
