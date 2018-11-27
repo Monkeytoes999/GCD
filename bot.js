@@ -854,9 +854,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				});
 				break;
 			case 'userInfo':
+				let play = 'Nothing'
+				if (bot.users[userID].game != null){
+					play = bot.users[userID].game.name
+				}
 				bot.sendMessage({
 					to: channelID,
-					message: '```prolog\nUsername: ' + user + '#' + bot.users[userID].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + bot.users[userID].bot + '\nPlaying: ' + bot.users[userID].game.name.toUpperCase + '```',
+					message: '```prolog\nUsername: ' + user + '#' + bot.users[userID].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + play + '```',
 					embed: {
 						color: 65280,
 						title: 'Avatar: ',
