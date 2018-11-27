@@ -950,6 +950,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					console.log(res)
 					console.log(err)
 				});
+				bot.sendMessage({
+					to: channelID,
+					message: ```js 'bot.sendMessage'```
+				});
 				break;
 			case 'LVTest':
 				bot.leaveServer('264445053596991498');
