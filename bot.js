@@ -827,8 +827,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				let toppRole = 0;
 				let toppRoleID = serverID;
-				let iaooof = 0;
-				for (iaooof = 0; iaooof < bot.servers[serverID].roles.length; iooof++){
+				for (let iaooof = 0; iaooof < bot.servers[serverID].roles.length; iaooof++){
 					if (bot.servers[serverID].roles[member.roles[iaooof]].position > toppRole && (bot.users[bot.servers[serverID].roles[member.roles[iaooof]].id] == undefined)){
 						toppRole = bot.servers[serverID].roles[member.roles[iaooof]].position
 						toppRoleID = bot.servers[serverID].roles[member.roles[iaooof]].id
@@ -836,6 +835,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					console.log(iaooof);
 					console.log(bot.users[bot.servers[serverID].roles[member.roles[iaooof]].id]);
 				}
+				break;
 			case 'guildLink':
 				bot.sendMessage({
 					to: channelID,
