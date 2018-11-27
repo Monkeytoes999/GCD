@@ -258,7 +258,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		bot.setPresence({
 			game: {
 				type: 0,
-				name: ' in ' + Object.keys(bot.servers).length + ' servers!'
+				name: 'in ' + Object.keys(bot.servers).length + ' servers!'
 			}
 		}, function(err, res){
 			if (err) throw err
@@ -860,7 +860,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				bot.sendMessage({
 					to: channelID,
-					message: '```prolog\nUsername: ' + user + '#' + bot.users[userID].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' + play + '```',
+					message: '```prolog\nUsername: ' + user + '#' + bot.users[userID].discriminator + ' \nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status.toUpperCase() + ' \nUser = Bot: ' bot.users[userID].bot + '\nPlaying: ' + play + '```',
 					embed: {
 						color: 65280,
 						title: 'Avatar: ',
