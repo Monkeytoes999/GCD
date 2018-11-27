@@ -855,17 +855,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				});
 				break;
 			case 'userInfo':
-				console.log(bot.servers[serverID])
 				bot.sendMessage({
 					to: channelID,
+					message: '```js \nUser: ' + user + ' \nID: ' + userID + ' \nJoined at: ' + member.joined_at + '```',
 					embed: {
 						color: 65280,
-						fields: [
-							{
-								title: 'User Info',
-								value: '```prolog \nUser: ' + user + ' \nID: ' + userID + ' \nJoined at: ' + member.joined_at + ' \nRoles: ' + member.roles + ' \nAvatar: ```'
-							}
-							],
+						title: 'Avatar: ',
 						image: {
 							url: 'https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png'
 						}
