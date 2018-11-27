@@ -3,9 +3,7 @@
 	"version": "1.0.0",
 	"description": "Stuff",
 	"main": "bot.js",
-	"author": "123","engines": {
-  	  "npm": "6.4.1"
-  	},
+	"author": "123",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
