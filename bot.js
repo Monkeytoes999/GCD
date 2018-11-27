@@ -830,10 +830,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				console.log(Object.keys(bot.servers[serverID].roles).length)
 				for (let iaooof = 0; iaooof < Object.keys(bot.servers[serverID].roles).length; iaooof++){
 					console.log(iaooof);
-					console.log(bot.users[bot.servers[serverID].roles[member.roles[iaooof]].id]);
-					if (bot.servers[serverID].roles[member.roles[iaooof]].position > toppRole && (bot.users[bot.servers[serverID].roles[member.roles[iaooof]].id] == undefined)){
-						toppRole = bot.servers[serverID].roles[member.roles[iaooof]].position
-						toppRoleID = bot.servers[serverID].roles[member.roles[iaooof]].id
+					console.log(bot.users[bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id]);
+					if (bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > toppRole && (bot.users[bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id] == undefined)){
+						toppRole = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position
+						toppRoleID = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id
 					}
 				}
 				break;
