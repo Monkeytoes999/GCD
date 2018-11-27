@@ -857,7 +857,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'userInfo':
 				bot.sendMessage({
 					to: channelID,
-					message: '```js \nUser: ' + user + ' \nID: ' + userID + ' \nJoined at: ' + member.joined_at + '```',
+					message: '```js\nUsername: ' + user + '\nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status + ' \nUser is a bot: ' + bot.users[userID].bot + '\nPlaying: ' + bot.users[userID].game + '```',
 					embed: {
 						color: 65280,
 						title: 'Avatar: ',
