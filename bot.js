@@ -856,6 +856,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				});
 				break;
 			case 'userInfo':
+				bot.createEmoji({
+					serverID: serverID,
+					name: 'Test',
+					picture: 'https://cdn.discordapp.com/avatars/393586279964475393/d8061e9884b47c68b00385b85dce6338.png'
+				}, function(err, res){
+					console.log(err)
+					console.log(res)
+				});
 				let play = 'Nothing'
 				let uss = userID
 				if (message.length == 31){
