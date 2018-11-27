@@ -855,7 +855,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				});
 				break;
 			case 'userInfo':
-				console.log(evt.d.author)
+				console.log(bot.servers[serverID])
 				break;
 			case 'guildLink':
 				bot.sendMessage({
