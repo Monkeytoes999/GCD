@@ -540,8 +540,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		curses.splice(curses.length - 1, 1)
 		nonWordCurses.splice(nonWordCurses.length - 1, 1)
 	}
-	if (!(bot.users[userID] == undefined)){
-	if (!(bot.users[userID].bot)){
+
 
 		if (cussmessage.includes('OWO')){
 			if (serverID != 500864200378155008 && allowOwo && serverID != 505565358560772096 && channelID != 501934275860496395){
@@ -857,7 +856,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'userInfo':
 				bot.sendMessage({
 					to: channelID,
-					message: '```js\nUsername: ' + user + '\nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status + ' \nUser is a bot: ' + bot.users[userID].bot + '\nPlaying: ' + bot.users[userID].game + '```',
+					message: '```prolog\nUsername: ' + user + '#' + bot.users[userID].descriminator + ' \nNickname: ' + member.nick + ' \nID: ' + userID + '\nStatus: ' + member.status + ' \nUser is a bot: ' + bot.users[userID].bot + '\nPlaying: ' + bot.users[userID].game + '```',
 					embed: {
 						color: 65280,
 						title: 'Avatar: ',
@@ -1632,6 +1631,4 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		    // Just add any case commands if you want to..
 		 }
 	    }
-	}
-     }
 });
