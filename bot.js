@@ -916,7 +916,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							author: {
 								name: bot.users[uss].username,
 								icon_url: 'https://cdn.discordapp.com/avatars/' + uss + '/' + bot.users[uss].avatar + '.png?size=32'
-							}
+							},
+							fields:[
+								{
+									name: 'Test',
+									value: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
+									inline: true
+								}
+								]
 						 }
 					});
 				}
