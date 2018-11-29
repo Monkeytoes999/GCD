@@ -748,6 +748,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					});
 				}
 				break;
+			case 'announce':
+				console.log(bot.servers)
+				break;
 			case 'leaveFollowers':
 				if (serverID == '511698216199258112'){
 					if (!member.roles.includes('511736694605611009')){
