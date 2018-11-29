@@ -76,6 +76,8 @@ var bikCussServers = process.env.bikServers;
 var servRK = [];
 var roleRK = [];
 var commRK = [];
+var delNextChannel = '';
+var someDelArray = [];
 
 //team blue 499003285106196480
 //team red 499003389955407872
@@ -555,6 +557,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				});
 			}
 		}
+				
+		if(someDelArray.includes(userID) && channelID == delNextChannel){
+			bot.deleteMessage({
+				channelID: channelID,
+				messageID: prevEvtID
+			});
+			let index = someDelArray.indexOf(userID);
+			someDelArray.splice(index, 1);
+		}
 
 				if (someArray.includes(userID) && userID == pollOpener){
 					pollOptions = [];
@@ -704,6 +715,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			    message: 'Pong!'
 			});
 		    break;
+			case 'delNext':
+				bot.deleteMessage({
+					channelID: channelID,
+					messageID: prevEvtID
+				});
+				delNextChannel = channelID
+				someDelArray.push(userID)
+				break;
 			case 'joinFollowers':
 				if (serverID == '511698216199258112'){
 					if (member.roles.includes('511736694605611009')){
