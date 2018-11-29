@@ -898,7 +898,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					member = bot.servers[serverID].members[uss];
 					let statss = 'OFFLINE'
 					if (member.status != undefined){
-						statss = member.status.toUpperCase()
+						statss = member.status
 					}
 					if (bot.users[uss].game != null){
 						play = bot.users[uss].game.name
@@ -913,6 +913,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 								icon_url: 'https://cdn.discordapp.com/avatars/' + uss + '/' + bot.users[uss].avatar + '.png'
 							}
 						 }
+					}, function(err, res){
+						console.log(err)
+						console.log(res)
 					});
 				}
 				break;
