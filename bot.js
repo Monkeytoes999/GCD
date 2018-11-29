@@ -896,7 +896,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				if (bot.users[uss] != null && bot.users[uss] != undefined){
 					member = bot.servers[serverID].members[uss];
-					let statss = 'OFFLINE'
+					let statss = 'offline'
 					if (member.status != undefined){
 						statss = member.status
 					}
