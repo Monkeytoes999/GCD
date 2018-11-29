@@ -914,9 +914,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 								icon_url: 'https://cdn.discordapp.com/avatars/' + uss + '/' + bot.users[uss].avatar + '.png?size=32'
 							}
 						 }
-					}, function(err, res){
-						console.log(err)
-						console.log(res)
 					});
 				}
 				break;
