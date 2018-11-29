@@ -909,8 +909,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						embed: {
 							color: 65280,
 							title: 'Avatar: ',
-							image: {
-								url: 'https://cdn.discordapp.com/avatars/' + uss + '/' + bot.users[uss].avatar + '.png'
+							author: {
+								icon_url: 'https://cdn.discordapp.com/avatars/' + uss + '/' + bot.users[uss].avatar + '.png'
 							}
 						 }
 					});
