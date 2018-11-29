@@ -910,6 +910,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							color: 65280,
 							title: 'Avatar: ',
 							author: {
+								name: 'Avatar: ',
 								icon_url: 'https://cdn.discordapp.com/avatars/' + uss + '/' + bot.users[uss].avatar + '.png'
 							}
 						 }
