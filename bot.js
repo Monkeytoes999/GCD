@@ -903,13 +903,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					if (bot.users[uss].game != null){
 						play = bot.users[uss].game.name
 					}
-					let bottt = false
+					let bottt = 'no'
 					if (bot.users[uss].bot){
-						bottt = true
+						bottt = 'yes'
 					}
 					bot.sendMessage({
 						to: channelID,
-						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n               ID: ' + uss + '\n       Status: ' + statss + ' \n             Bot: ' + bottt + '\n     Playing: ' + play + '```',
+						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
 						embed: {
 							color: 65280,
 							title: 'Avatar: ',
