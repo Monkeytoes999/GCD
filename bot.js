@@ -916,14 +916,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
 						embed: {
 							color: 65280,
-							title: 'Avatar: ',
 							author: {
-								name: bot.users[uss].username,
+								name: dispname,
 								icon_url: 'https://cdn.discordapp.com/avatars/' + uss + '/' + bot.users[uss].avatar + '.png?size=32'
 							},
 							fields:[
 								{
-									name: 'Here\'s all the data I found for ' + dispname + ': ',
+									name: 'Here\'s all the data I could find for the user ' + dispname + ': ',
 									value: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
 									inline: true
 								}
