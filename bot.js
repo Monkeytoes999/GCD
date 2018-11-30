@@ -913,7 +913,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					}
 					bot.sendMessage({
 						to: channelID,
-						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
+// 						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
 						embed: {
 							color: 65280,
 							author: {
@@ -922,7 +922,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							},
 							fields:[
 								{
-									name: 'Here\'s all the data I could find for the user ' + dispname + ': ',
+									name: 'Here\'s all the data I could find for the user \'' + dispname + '\': ',
 									value: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
 									inline: true
 								}
