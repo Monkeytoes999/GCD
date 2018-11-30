@@ -907,6 +907,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					if (bot.users[uss].bot){
 						bottt = 'yes'
 					}
+					let dispname = bot.users[uss].username
+					if (member.nick != null){
+						dispname = member.nick
+					}
 					bot.sendMessage({
 						to: channelID,
 						message: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
@@ -919,7 +923,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							},
 							fields:[
 								{
-									name: 'Here\'s all the data I found for ' + bot.users[uss].username + ': ',
+									name: 'Here\'s all the data I found for ' + dispname + ': ',
 									value: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
 									inline: true
 								}
