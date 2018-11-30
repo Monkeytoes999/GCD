@@ -919,7 +919,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							},
 							fields:[
 								{
-									name: 'Test',
+									name: 'Here\'s what I found for ' + bot.users[uss].username,
 									value: '```prolog\nUsername: ' + bot.users[uss].username + '#' + bot.users[uss].discriminator + ' \nNickname: ' + member.nick + ' \n      ID: ' + uss + '\n  Status: ' + statss + ' \n     Bot: ' + bottt + '\n Playing: ' + play + '```',
 									inline: true
 								}
