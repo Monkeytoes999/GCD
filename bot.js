@@ -1039,8 +1039,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							topRoleID = bot.servers[serverID].roles[member.roles[iooof]].id
 						}
 					}
-					if (message.length > 30 && message.length < 45){
-						if (topRole != 0){
+					if (message.length > 30 && message.length < 45 && message.includes('<@&')){
+						if (topRole != 0 && bot.servers[serverID].roles[message.substring(message.indexOf('&') + 1, message.indexOf('&') + 19)] != undefined){
 						    if (bot.servers[serverID].roles[message.substring(message.indexOf('&') + 1, message.indexOf('&') + 19)].position < topRole && bot.servers[serverID].roles[topRoleID].GENERAL_ADMINISTRATOR){
 								bot.getMessage({
 									channelID: '512776592536109057',
