@@ -941,7 +941,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'portalCat':
 				bot.sendMessage({
 					to: channelID,
-					message: '<a:affa:502663197808132116>'
+					message: '<a:affa:519264989589143552>'
 				});
 				break;
 			case 'ttb':
