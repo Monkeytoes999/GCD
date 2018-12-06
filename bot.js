@@ -342,6 +342,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		day = thisDay;
 		dayay = thisDayay;
 		if (day != prevDay && scDay != 'oof'){
+			bot.setPresence({
+				game: {
+					type: 0,
+					name: 'in ' + Object.keys(bot.servers).length + ' servers!'
+				}
+			}, function(err, res){
+				if (err) throw err
+			});
 			if (scDayChange){
 				if (scDay.toUpperCase() == 'A'){
 					scDay = 'B';
@@ -943,6 +951,18 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: '<a:affa:519264989589143552>'
 				});
+				break;
+			case 'udtServers':
+				if (userID == gID){
+					bot.setPresence({
+						game: {
+							type: 0,
+							name: 'in ' + Object.keys(bot.servers).length + ' servers!'
+						}
+					}, function(err, res){
+						if (err) throw err
+					});
+				}
 				break;
 			case 'ttb':
 				bot.sendMessage({
