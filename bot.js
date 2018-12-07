@@ -103,7 +103,7 @@ bot.on('ready', function (evt) {
     logger.info(bot.username + ' - (' + bot.id + ')');
 	bot.sendMessage({
 		to: '520394437461803010',
-		message: imback[Math.floor(Math.random * imback.length)]
+		message: imback[Math.floor(Math.random() * imback.length)]
 	});
 });
 
