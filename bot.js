@@ -79,7 +79,7 @@ var roleRK = [];
 var commRK = [];
 var delNextChannel = '';
 var someDelArray = [];
-var imbak['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
+var imbak = ['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
 
 //team blue 499003285106196480
 //team red 499003389955407872
