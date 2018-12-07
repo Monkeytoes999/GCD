@@ -100,6 +100,10 @@ bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
+	bot.sendMessage({
+		to: '520394437461803010',
+		message: 'I am BACK mannn'
+	});
 });
 
 bot.on('any', function(event) {
