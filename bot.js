@@ -278,9 +278,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		}, function(err, res){
 			if (err) throw err
 			let toFillServ = res.content;
-			for (var servRKi = 0; toFillServ.length > 0; toFillServ = toFillServ.substring(20)){
-				servRK.push(toFillServ.substring(0, 18));
+			for (var servRKi = 0; toFillServ.includes(','); toFillServ = toFillServ.substring(toFillServ.indexOf(',') + 2)){
+				servRK.push(toFillServ.substring(0, toFillServ.indexOf(',')));
 			}
+			servRK.push(toFillServ)
 		});
 		bot.getMessage({
 			channelID: '512776592536109057',
@@ -288,9 +289,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		}, function(err, res){
 			if (err) throw err
 			let toFillServ = res.content;
-			for (var roleRKi = 0; toFillServ.length > 0; toFillServ = toFillServ.substring(20)){
-				roleRK.push(toFillServ.substring(0, 18));
+			for (var roleRKi = 0; toFillServ.includes(','); toFillServ = toFillServ.substring(toFillServ.indexOf(',') + 2)){
+				roleRK.push(toFillServ.substring(0, toFillServ.indexOf(',')));
 			}
+			roleRK.push(toFillServ)
 		});
 		bot.getMessage({
 			channelID: '512776592536109057',
