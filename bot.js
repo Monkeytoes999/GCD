@@ -762,6 +762,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					});
 				}
 				break;
+			case 'EDTmess':
+				if (userID == gID){
+					bot.editMessage({
+						channelID: channelID,
+						messageID: message.substring(9, 28),
+						message: message.substring(29)
+					});	
+				}
+				break;
 			case 'announce':
 // 				console.log(bot.servers)
 				break;
