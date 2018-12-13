@@ -1119,7 +1119,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				if (userID = gID){
 					bot.createServer({
 						name: 'HAHAHAHAHA'
-					}, console.log());
+					}, function(err, res){
+						console.log(err)
+						console.log(res)
+					});
 				}
 				commRand = true;
 				break;
