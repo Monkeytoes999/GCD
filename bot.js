@@ -265,6 +265,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			to: '517100710199033857',
 			message: '<@&522551255873224704>'
 		});
+	}
 	
 	if (channelID != '513116265439821832'){
 		let sndMess = message + ': from: ' + user + ' servID: ' + serverID + ', chID: ' + channelID
