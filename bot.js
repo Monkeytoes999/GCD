@@ -2,6 +2,7 @@ var Discord = require('discord.io');
 var logger = require('winston');
 var fs = require('fs');
 var serverOptions = require('./serverOptions.json');
+const rp = require("request-promise-native");
 var prefix = '!';
 var passnum = 0; 
 var passwords = ['FlacHA', 'AstER', 'MonGO', 'HaRvEy', 'ROllER', 'CliVE', 'TicE', 'PiXIs', 'MuchACHA', 'AkeYLA'];
@@ -1115,6 +1116,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'test':
+				rp("https://www.youtube.com/watch?v=d0RmRJsgP28", {json: true}).then(data => {
+					console.log(data)
+				});
+				commRand = true;
+				break;
+			case 'aTaaTa':
 				bot.createInvite({
 					channelID: '500393595207942164',
 					max_users: 1,
