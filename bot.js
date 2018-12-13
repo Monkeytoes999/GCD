@@ -82,7 +82,7 @@ var someDelArray = [];
 var imback = ['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
 var randSong = ['https://www.youtube.com/watch?v=d0RmRJsgP28'];
 var randVideo = ['Oops, there are currently no videos!'];
-var commRan = false;
+var commRand = false;
 
 
 //team blue 499003285106196480
@@ -112,7 +112,7 @@ bot.on('ready', function (evt) {
 });
 
 bot.on('any', function(event) {
-	commRan = false
+	commRand = false
 //     if ((Math.floor(Math.random() * 50000)) > 49999){
 // 	    if (event.d != null){
 // 		    if (event.d.channel_id != undefined && event.d.guild_id != '264445053596991498'){
