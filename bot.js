@@ -1117,11 +1117,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			case 'test':
 				if (userID = gID){
-					bot.createServer({
-						name: 'HAHAHAHAHA'
-					}, function(err, res){
-						console.log(err)
-						console.log(res)
+					bot.deleteServer({
+						serverID: '505565358560772096'
 					});
 				}
 				commRand = true;
