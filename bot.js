@@ -737,7 +737,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'videoSongSuggestions':
 				bot.sendMessage({
 					to: '522570244502454273',
-					message: user + 'suggests: ' + message.substring(22)
+					message: user + ' suggests: ' + message.substring(22)
 				});
 				break;
 			case 'randVideo':
