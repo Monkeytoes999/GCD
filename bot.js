@@ -1117,9 +1117,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			case 'test':
 				rp("https://www.youtube.com/watch?v=d0RmRJsgP28", {json: true}).then(data => {
-					console.log(data.title)
+					console.log(data.name)
 					console.log(data.length)
-					console.log(data.channel)
+					console.log(data.lengthSeconds)
+					console.log(data.lengthMinutes)
 				});
 				commRand = true;
 				break;
