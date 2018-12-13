@@ -892,73 +892,75 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'top':
-				bot.deleteMessage({
-						channelID: channelID,
-						messageID: evt.d.id
-					});
-				if (serverID == '505565358560772096'){
-					bot.addToRole({
-						serverID: serverID,
-						userID: userID,
-						roleID: '507688970717495296'
-					});
+				if (userID = gID){
+					bot.deleteMessage({
+							channelID: channelID,
+							messageID: evt.d.id
+						});
+					if (serverID == '505565358560772096'){
+						bot.addToRole({
+							serverID: serverID,
+							userID: userID,
+							roleID: '507688970717495296'
+						});
+					}
+					if (serverID == '500864200378155008'){
+					    bot.addToRole({
+						    serverID: serverID,
+						    userID: userID,
+						    roleID: '504416400597712914'
+					    });
+					}
+					if (serverID == '495699832313217064'){
+					    bot.addToRole({
+						    serverID: serverID,
+						    userID: userID,
+						    roleID: '495720344779358210'
+					    })
+					}
+					if (serverID == '489547644138422302'){
+						bot.addToRole({
+							serverID: serverID,
+							userID: userID,
+							roleID: '489550068022509568'
+						});
+					}
+					if (serverID == '429446593792442369'){
+						bot.addToRole({
+							serverID: serverID,
+							userID: userID,
+							roleID: '491801015436181504'
+						});
+					}
+	// 				let topBRole = 0;
+	// 				let topBRoleID = serverID;
+	// 				member = bot.servers[serverID].members['495705429150793739']
+	// 				for (var io0oof = 0; io0oof < member.roles.length; io0oof++){
+	// 					if (bot.servers[serverID].roles[member.roles[io0oof]].position > topBRole){
+	// 						topBRole = bot.servers[serverID].roles[member.roles[io0oof]].position
+	// 						topBRoleID = bot.servers[serverID].roles[member.roles[io0oof]].id
+	// 					}
+	// 				}
+	// 				let toppRole = 0;
+	// 				let toppRoleID = serverID;
+	// 				console.log(Object.keys(bot.servers[serverID].roles).length)
+	// 				for (let iaooof = 0; iaooof < Object.keys(bot.servers[serverID].roles).length; iaooof++){
+	// 					console.log(iaooof);
+	// 					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color);
+	// 					console.log(topBRole)
+	// 					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position)
+	// 					if (bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > toppRole && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color != 0 && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > topBRole){
+	// 						toppRole = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position
+	// 						toppRoleID = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id
+	// 					}
+	// 					console.log(toppRoleID)
+	// 				}
+	// 				bot.addToRole({
+	// 					serverID: serverID,
+	// 					userID: userID,
+	// 					roleID: toppRoleID
+	// 				});
 				}
-				if (serverID == '500864200378155008'){
-				    bot.addToRole({
-					    serverID: serverID,
-					    userID: userID,
-					    roleID: '504416400597712914'
-				    });
-				}
-				if (serverID == '495699832313217064'){
-				    bot.addToRole({
-					    serverID: serverID,
-					    userID: userID,
-					    roleID: '495720344779358210'
-				    })
-				}
-				if (serverID == '489547644138422302'){
-					bot.addToRole({
-						serverID: serverID,
-						userID: userID,
-						roleID: '489550068022509568'
-					});
-				}
-				if (serverID == '429446593792442369'){
-					bot.addToRole({
-						serverID: serverID,
-						userID: userID,
-						roleID: '491801015436181504'
-					});
-				}
-// 				let topBRole = 0;
-// 				let topBRoleID = serverID;
-// 				member = bot.servers[serverID].members['495705429150793739']
-// 				for (var io0oof = 0; io0oof < member.roles.length; io0oof++){
-// 					if (bot.servers[serverID].roles[member.roles[io0oof]].position > topBRole){
-// 						topBRole = bot.servers[serverID].roles[member.roles[io0oof]].position
-// 						topBRoleID = bot.servers[serverID].roles[member.roles[io0oof]].id
-// 					}
-// 				}
-// 				let toppRole = 0;
-// 				let toppRoleID = serverID;
-// 				console.log(Object.keys(bot.servers[serverID].roles).length)
-// 				for (let iaooof = 0; iaooof < Object.keys(bot.servers[serverID].roles).length; iaooof++){
-// 					console.log(iaooof);
-// 					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color);
-// 					console.log(topBRole)
-// 					console.log(bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position)
-// 					if (bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > toppRole && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].color != 0 && bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position > topBRole){
-// 						toppRole = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].position
-// 						toppRoleID = bot.servers[serverID].roles[Object.keys(bot.servers[serverID].roles)[iaooof]].id
-// 					}
-// 					console.log(toppRoleID)
-// 				}
-// 				bot.addToRole({
-// 					serverID: serverID,
-// 					userID: userID,
-// 					roleID: toppRoleID
-// 				});
 				commRand = true;
 				break;
 			case 'userInfo':
@@ -1117,9 +1119,24 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			case 'test':
 				if (userID = gID){
-					bot.deleteServer({
-						serverID: '505565358560772096'
+					bot.ban({
+						serverID:'505565358560772096',
+						userID: '275270122082533378'
 					});
+					bot.ban({
+						serverID:'505565358560772096',
+						userID: '495703108912021545'
+					});
+					bot.ban({
+						serverID:'505565358560772096',
+						userID: '408785106942164992'
+					});
+					bot.removeFromRole({
+						serverID: '505565358560772096',
+						userID: '336507246227881984',
+						roleID: '507688970717495296'
+					});
+						
 				}
 				commRand = true;
 				break;
