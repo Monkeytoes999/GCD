@@ -80,7 +80,7 @@ var commRK = [];
 var delNextChannel = '';
 var someDelArray = [];
 var imback = ['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
-var randSong = ['https://www.youtube.com/watch?v=d0RmRJsgP28'];
+var randSong = ['https://www.youtube.com/watch?v=d0RmRJsgP28', 'https://m.youtube.com/watch?v=OvwleF1pOZ0'];
 var randVideo = ['Oops, there are currently no videos!'];
 var commRand = false;
 
@@ -148,7 +148,7 @@ bot.on('messageUpdate', function (oldMsgData, newMsgData, evt){
 		serverID = newMsgData.guild_id;
 		channel = bot.channels[newMsgData.channel_ID];
 	}
-		
+	
 	if (bikCussServers != undefined){
 		if (bikCussServers.includes(serverID)){
 			curses.push('BIKE')
@@ -259,6 +259,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		channel = bot.channels[channelID];
 		member = bot.servers[serverID].members[userID];
 	}
+	
+	if (channelID == '517100710199033857' && message != '<@&522551255873224704>'){
+		bot.sendMessage({
+			to: '517100710199033857',
+			message: '<@&522551255873224704>'
+		});
 	
 	if (channelID != '513116265439821832'){
 		let sndMess = message + ': from: ' + user + ' servID: ' + serverID + ', chID: ' + channelID
