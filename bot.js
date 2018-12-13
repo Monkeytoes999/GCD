@@ -82,6 +82,7 @@ var someDelArray = [];
 var imback = ['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
 var randSong = ['https://www.youtube.com/watch?v=d0RmRJsgP28'];
 var randVideo = ['Oops, there are currently no videos!'];
+var commRan = false;
 
 
 //team blue 499003285106196480
@@ -111,6 +112,7 @@ bot.on('ready', function (evt) {
 });
 
 bot.on('any', function(event) {
+	commRan = false
 //     if ((Math.floor(Math.random() * 50000)) > 49999){
 // 	    if (event.d != null){
 // 		    if (event.d.channel_id != undefined && event.d.guild_id != '264445053596991498'){
@@ -733,12 +735,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			    to: channelID,
 			    message: 'Pong!'
 			});
+			commRand = true;
 		    break;
 			case 'videoSongSuggestions':
 				bot.sendMessage({
 					to: '522570244502454273',
 					message: user + ' suggests: ' + message.substring(22)
 				});
+				commRand = true;
 				break;
 			case 'randVideo':
 				bot.sendMessage({
@@ -749,6 +753,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: 'As you can see, we\'re currently VERY low on videos. Concider suggesting one with ' + prefix + 'videoSongSuggestions [link]'
 				});
+				commRand = true;
 				break;
 			case 'randSong':
 				bot.sendMessage({
@@ -759,6 +764,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: 'As you can see, we\'re currently VERY low on songs. Concider suggesting one with ' + prefix + 'videoSongSuggestions [link]'
 				});
+				commRand = true;
 				break;
 			case 'delNext':
 				if (userID == gID){
@@ -769,6 +775,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					delNextChannel = channelID
 					someDelArray.push(userID)
 				}
+				commRand = true;
 				break;
 			case 'joinFollowers':
 				if (serverID == '511698216199258112'){
@@ -794,6 +801,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: 'This is only usable in the GCD support server'
 					});
 				}
+				commRand = true;
 				break;
 			case 'EDTmess':
 				if (userID == gID){
@@ -803,9 +811,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: message.substring(29)
 					});	
 				}
+				commRand = true;
 				break;
 			case 'announce':
 // 				console.log(bot.servers)
+				commRand = true;
 				break;
 			case 'leaveFollowers':
 				if (serverID == '511698216199258112'){
@@ -831,6 +841,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: 'This is only usable in the GCD support server'
 					});
 				}
+				commRand = true;
 				break;
 			case 'feedback':
 				bot.sendMessage({
@@ -841,6 +852,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: '511728374704504847',
 					message: user + ' says: ' + message.substring(10)
 				});
+				commRand = true;
 				break;
 			case 'suggest':
 				bot.sendMessage({
@@ -857,6 +869,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				    messageID: message.substring(6),
 				    reaction: "💚"
 				});
+				commRand = true;
 				break;
 			case 'rct':
 				bot.addReaction({
@@ -864,6 +877,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				    messageID: message.substring(5),
 				    reaction: "💚"
 				});
+				commRand = true;
 				break;
 			case 'top':
 				bot.deleteMessage({
@@ -933,6 +947,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 					userID: userID,
 // 					roleID: toppRoleID
 // 				});
+				commRand = true;
 				break;
 			case 'userInfo':
 // 				bot.addServerEmoji({
@@ -986,18 +1001,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						 }
 					});
 				}
+				commRand = true;
 				break;
 			case 'guildLink':
 				bot.sendMessage({
 					to: channelID,
 					message: 'Here is an invite to the GCD help server. Come join us! \nhttps://discord.gg/aqnzQ4x'
 				});
+				commRand = true;
 				break
 			case 'portalCat':
 				bot.sendMessage({
 					to: channelID,
 					message: '<a:affa:519264989589143552>'
 				});
+				commRand = true;
 				break;
 			case 'udtServers':
 				if (userID == gID){
@@ -1010,18 +1028,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						if (err) throw err
 					});
 				}
+				commRand = true;
 				break;
 			case 'ttb':
 				bot.sendMessage({
 					to: '486985623161274378',
 					message: user + ' wanted me to tell you this: ' + message.substring(5)
 				});
+				commRand = true;
 				break;
 			case 'ttw':
 				bot.sendMessage({
 					to: '264445053596991498',
 					message: message.substring(4)
 				});
+				commRand = true;
 				break;
 			case 'ttu':
 				if(message.substring(5,6) != '<'){
@@ -1035,6 +1056,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: message.substring(27)
 					});
 				}
+				commRand = true;
 				break;
 			case 'music':
 				if (!songPlaying){
@@ -1051,6 +1073,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					}
 					songPlaying = false;
 				}
+				commRand = true;
 				break;
 			case 'oofTest':
 				bot.sendMessage({
@@ -1065,6 +1088,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: commRK + ' m'
 				});
+				commRand = true;
 			break;
 			case 'cttest':
 				bot.editMessage({
@@ -1077,6 +1101,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					messageID: '512782505284206593',
 					message: '511698216199258112, 511698216199258112'
 				});
+				commRand = true;
 				break;
 			case 'test':
 				bot.createInvite({
@@ -1092,9 +1117,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: ```js 'bot.sendMessage'```
 				});
+				commRand = true;
 				break;
 // 			case 'LVTest':
 // 				bot.leaveServer('264445053596991498');
+// 				commRand = true;
 // 				break;
 			case 'rcCM':
 				if (!bot.directMessages[channelID]){
@@ -1189,18 +1216,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: 'You can\'t do this in a DM'
 					});
 				}
+				commRand = true;
 				break;
 			case 'getChannelID':
 				bot.sendMessage({
 					to: channelID,
 					message: channelID
 				});
+				commRand = true;
 				break;
 			case 'tto':
 					 bot.sendMessage({
 						to: channelID,
 						message: bot.fixMessage(message.substring(5))
 					});
+				commRand = true;
 				break;
 			case 'prune':
 				let arrayUserNeed = '';
@@ -1220,6 +1250,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						}
 					}
 				}
+				commRand = true;
 				break;
 			case 'del20':
 				for (var dell = 0; dell < 20; dell ++){
@@ -1230,15 +1261,18 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							});
 					}
 				}
+				commRand = true;
 				break;
 			case 'preventScDayChange':
 				scDayChange = false;
+				commRand = true;
 				break;
 			case 'getScDay':
 				bot.sendMessage({
 					to: channelID,
 					message: 'Today is a(n) ' + scDay + ' day!'
 				});
+				commRand = true;
 				break;
 			case 'setScDay':
 				if (message.length = 10 && userID == gID){
@@ -1253,6 +1287,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: scDay
 					});
 				}
+				commRand = true;
 				break;
 			case 'help':
 				let usrID = userID;
@@ -1272,9 +1307,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: 'Documentation has been sent to your dms.'
 					});
 				}
+				commRand = true;
 				break;
 			case 'allowBreedChange':
 				allowBreedChange = true;
+				commRand = true;
 				break;
 			case 'findRoleID':
 				if (message.length > 11){
@@ -1286,6 +1323,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						});
 					}
 				}
+				commRand = true;
 				break;
 			case 'getDay':
 				let currentTime = new Date();
@@ -1305,6 +1343,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: dayay
 				});
+				commRand = true;
 				break;
 			case 'createPoll':
 				if (message == "!createPoll" && !someArray.includes(userID) && !openPoll) {
@@ -1321,6 +1360,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						 message: 'Sorry ' + user + ', but a poll is already open. Please wait for this poll to finish'
 					});
 				}
+				commRand = true;
 				break;
 			case 'pollOptions':
 				let mes = '';
@@ -1333,6 +1373,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: mes
 				});
+				commRand = true;
 				break;
 			case 'closePoll':
 				if (!openPoll){
@@ -1364,6 +1405,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						});
 					}
 				}
+				commRand = true;
 				break;
 			case 'vote':
 				if (openPoll){
@@ -1398,6 +1440,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: user + ', there is no open poll right now'
 					});
 				}
+				commRand = true;
 				break;
 			case 'addCustomResponse':
 				if(!openPoll){
@@ -1415,6 +1458,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: 'Ok ' + user + ', your custom response, ' + customResponse + ', has been added, but not voted for.'
 					});
 				}
+				commRand = true;
 				break;
 			case 'pollResults':
 				let mess = '';
@@ -1425,6 +1469,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: mess
 				});
+				commRand = true;
 				break;
 			case 'getServerID':
 				if (!bot.directMessages[channelID]){
@@ -1438,6 +1483,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: 'You are currently in a DM, which doesn\'t have a "Server ID"'
 					});
 				}
+				commRand = true;
 				break;
 			case 'createAtappPoll':
 				if (!someArray.includes(userID) && !openAtappPoll) {
@@ -1454,6 +1500,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						 message: 'Sorry ' + user + ', but a "all that apply" poll is already open. Please wait for this poll to finish'
 					});
 				}
+				commRand = true;
 				break;
 			case 'pollAtappOptions':
 				let mesAtapp = '';
@@ -1466,6 +1513,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: mesAtapp
 				});
+				commRand = true;
 			break;
 			case 'addCustomAtappResponse':
 				if(!openAtappPoll){
@@ -1483,6 +1531,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: 'Ok ' + user + ', your custom response, ' + customResponseAtapp + ', has been added to the "all that apply" poll, but not voted for.'
 					});
 				}
+				commRand = true;
 			break;
 			case 'pollAtappResults':
 				let messAtapp = '';
@@ -1493,6 +1542,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: messAtapp
 				});
+				commRand = true;
 				break;
 			case 'voteAtapp':
 				let userAlreadyAtappVoted = false;
@@ -1521,6 +1571,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						}
 					}
 				}
+				commRand = true;
 				break;
 			case 'closeAtappPoll':
 				if (!openAtappPoll){
@@ -1552,6 +1603,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						});
 					}
 				}
+				commRand = true;
 			break;
 			case 'spamit':
 				if(channelID == spamChannel && message.substring(8) == spamPassword && allowSpam && ((userID == 393586279964475393) || (userID == 495705429150793739))){
@@ -1562,6 +1614,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						 });
 					}, 1000);
 				}
+				commRand = true;
 				break;
 			case 'confuse':
 				bot.simulateTyping(channelID);
@@ -1569,6 +1622,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						channelID: channelID,
 						messageID: prevEvtID
 					});
+				commRand = true;
 				break;
 			case 'changeSpamAllowance':
 				bot.deleteMessage({
@@ -1576,6 +1630,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					messageID: prevEvtID
 				});
 				allowSpam = !allowSpam;
+				commRand = true;
 				break;
 			case 'setSpamPass':
 				bot.deleteMessage({
@@ -1584,6 +1639,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					});
 				spamPassword = message.substring(13);
 				spamChannel = channelID;
+				commRand = true;
 				break;
 			case 'newRole':
 				bot.createRole(serverID, function(err, res) {
@@ -1610,8 +1666,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						channelID: channelID,
 						messageID: prevEvtID
 					});
-
-
+				commRand = true;
 				break;
 			case 'changeMyNickname':
 				randNum = Math.floor(Math.random() * nicknames.length);
@@ -1624,6 +1679,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: 'Ok, your nickname is now ' + nicknames[randNum]
 				});
+				commRand = true;
 				break;
 				case 'customCommand1':
 				if (commandList[0] == '__'){
@@ -1634,6 +1690,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					});
 					custom1channelID = channelID;
 				}
+				commRand = true;
 				break;
 				case 'customCommand2':
 				if (commandList[1] == '__'){
@@ -1644,6 +1701,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					});
 					custom2channelID = channelID;
 				}
+				commRand = true;
 				break;
 				case 'customCommand3':
 				if (commandList[2] == '__'){
@@ -1654,12 +1712,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					});
 					custom3channelID = channelID;
 				}
+				commRand = true;
 				break;
 				case 'customCommands':
 				bot.sendMessage({
 					to: channelID,
 					message: commandList[0] + ', ' + commandList[1] + ', ' + commandList[2]
 				});
+				commRand = true;
 				break;
 			case commandList[0]:
 					bot.simulateTyping(channelID);
@@ -1667,6 +1727,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						to: channelID,
 						message: resultList[0]
 					});
+				commRand = true;
 				break;
 				case commandList[1]:
 				bot.simulateTyping(channelID);
@@ -1674,6 +1735,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						to: channelID,
 						message: resultList[1]
 					});
+				commRand = true;
 				break;
 				case commandList[2]:
 				bot.simulateTyping(channelID);
@@ -1681,6 +1743,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						to: channelID,
 						message: resultList[2]
 					});
+				commRand = true;
 				break;
 			case 'knockknock':
 				bot.sendMessage({
@@ -1688,6 +1751,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					message: 'Who\'s there?'
 				});
 				knockknock = 1;
+				commRand = true;
 				break;
 			case 'crtty':
 				console.log(bot.servers)
@@ -1700,6 +1764,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						to: channelID,
 						message: '|             A    A \n |        (= ^w^ = )'
 					});
+				commRand = true;
 				break;
 			case 'die':
 				if (userID == '393586279964475393'){
@@ -1710,6 +1775,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						bot.disconnect();
 					});
 				}
+				commRand = true;
 				break;
 				case 'Aflac':
 					var password = message.substring(9);
@@ -1740,12 +1806,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							message: 'DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM DESTROYING BY SPAM'
 						});
 					}
+				commRand = true;
 				break;
 			default:
 				if (!bot.directMessages[channelID] && serverID != '264445053596991498'){
 					for (var oqo = 0; oqo < servRK.length; oqo++){
 							if (serverID == servRK[oqo]){
 								if (message.substring(1) == commRK[oqo]){
+									commRand = true;
 									bot.addToRole({
 										serverID: serverID,
 										userID: userID,
@@ -1764,6 +1832,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		    // Just add any case commands if you want to..
 		 }
 	    }
+		if (commRand){
+			bot.sendMessage({
+				to: '522580047895330820',
+				message: user + ' used this command: ' + message
+			});
+		}
 	}
 	}
 });
