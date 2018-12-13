@@ -1116,12 +1116,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'test':
-				rp("https://www.youtube.com/watch?v=d0RmRJsgP28", {json: true}).then(data => {
-					console.log(data.name)
-					console.log(data.length)
-					console.log(data.lengthSeconds)
-					console.log(data.lengthMinutes)
-				});
+				if (userID = gID){
+					bot.createServer({
+						name: 'HAHAHAHAHA'
+					});
+				}
 				commRand = true;
 				break;
 			case 'aTaaTa':
