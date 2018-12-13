@@ -80,7 +80,7 @@ var commRK = [];
 var delNextChannel = '';
 var someDelArray = [];
 var imback = ['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
-var randSong = ['https://www.youtube.com/watch?v=d0RmRJsgP28', 'https://m.youtube.com/watch?v=OvwleF1pOZ0', 'https://m.youtube.com/watch?v=IIaUKTqOEmc'];
+var randSong = ['https://m.youtube.com/watch?v=6jCNibY1LOk','https://www.youtube.com/watch?v=d0RmRJsgP28', 'https://m.youtube.com/watch?v=OvwleF1pOZ0', 'https://m.youtube.com/watch?v=IIaUKTqOEmc'];
 var randVideo = ['https://m.youtube.com/watch?v=W9gxFkOz2_4'];
 var commRand = false;
 
@@ -751,7 +751,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				});
 				bot.sendMessage({
 					to: channelID,
-					message: 'Thank you, your suggestion will be concidered. Please keep in mind that all suggestions must be English, curse free, and less than 20 minutes long.'
+					message: 'Thank you, your suggestion will be considered. Please keep in mind that all suggestions must be English, curse free, and less than 20 minutes long.'
 				});
 				commRand = true;
 				break;
@@ -762,7 +762,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				});
 				bot.sendMessage({
 					to: channelID,
-					message: 'As you can see, we\'re currently VERY low on videos. Concider suggesting one with ' + prefix + 'videoSongSuggestions [link]'
+					message: 'As you can see, we\'re currently VERY low on videos. Consider suggesting one with ' + prefix + 'videoSongSuggestions [link]'
 				});
 				commRand = true;
 				break;
@@ -773,7 +773,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				});
 				bot.sendMessage({
 					to: channelID,
-					message: 'As you can see, we\'re currently VERY low on songs. Concider suggesting one with ' + prefix + 'videoSongSuggestions [link]'
+					message: 'As you can see, we\'re currently VERY low on songs. Consider suggesting one with ' + prefix + 'videoSongSuggestions [link]'
 				});
 				commRand = true;
 				break;
