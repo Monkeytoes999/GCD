@@ -900,7 +900,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					bot.addToRole({
 						serverID: serverID,
 						userID: userID,
-						roleID: '508031833766625282'
+						roleID: '507688970717495296'
 					});
 				}
 				if (serverID == '500864200378155008'){
