@@ -80,7 +80,7 @@ var commRK = [];
 var delNextChannel = '';
 var someDelArray = [];
 var imback = ['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
-var randSong = ['Oops, there are currently no songs!'];
+var randSong = ['https://www.youtube.com/watch?v=d0RmRJsgP28'];
 var randVideo = ['Oops, there are currently no videos!'];
 
 
