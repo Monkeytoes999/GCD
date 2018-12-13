@@ -80,7 +80,7 @@ var commRK = [];
 var delNextChannel = '';
 var someDelArray = [];
 var imback = ['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
-var randSong = ['https://m.youtube.com/watch?v=6jCNibY1LOk','https://www.youtube.com/watch?v=d0RmRJsgP28', 'https://m.youtube.com/watch?v=OvwleF1pOZ0', 'https://m.youtube.com/watch?v=IIaUKTqOEmc'];
+var randSong = ['https://m.youtube.com/watch?v=1kup8efewac','https://m.youtube.com/watch?v=6jCNibY1LOk','https://www.youtube.com/watch?v=d0RmRJsgP28', 'https://m.youtube.com/watch?v=OvwleF1pOZ0', 'https://m.youtube.com/watch?v=IIaUKTqOEmc'];
 var randVideo = ['https://m.youtube.com/watch?v=W9gxFkOz2_4'];
 var commRand = false;
 
