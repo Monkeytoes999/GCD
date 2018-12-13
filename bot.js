@@ -80,6 +80,9 @@ var commRK = [];
 var delNextChannel = '';
 var someDelArray = [];
 var imback = ['I\'mmmmmm baaaack!', 'Did you miss me?', 'Geez, how long was I gone??', 'I\'m back! Can I get a raise?', 'I\'m here again, be scared... if you want.', 'Hey there fella, I DON\'T CARE ABOUT YOU'];
+var randSong = ['Oops, there are currently no videos!'];
+var randVideo = ['Oops, there are currently no songs!'];
+
 
 //team blue 499003285106196480
 //team red 499003389955407872
@@ -731,13 +734,41 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			    message: 'Pong!'
 			});
 		    break;
-			case 'delNext':
-				bot.deleteMessage({
-					channelID: channelID,
-					messageID: prevEvtID
+			case 'videoSongSuggestions':
+				bot.sendMessage({
+					to: '522570244502454273',
+					message: user + 'suggests: ' + message.substring(22)
 				});
-				delNextChannel = channelID
-				someDelArray.push(userID)
+				break;
+			case 'randVideo':
+				bot.sendMessage({
+					to: channelID,
+					message: 'There are currently ' + randVideo.length + ' video options, here\'s one. \n' + randVideo[Math.floor(Math.random() * randVideo.length)]
+				});
+				bot.sendMessage({
+					to: channelID,
+					message: 'As you can see, we\'re currently VERY low on videos. Concider suggesting one with ' + prefix + 'videoSongSuggestions [link]'
+				});
+				break;
+			case 'randSong':
+				bot.sendMessage({
+					to: channelID,
+					message: 'There are currently ' + randSong.length + ' song options, here\'s one. \n' + randSong[Math.floor(Math.random() * randSong.length)]
+				});
+				bot.sendMessage({
+					to: channelID,
+					message: 'As you can see, we\'re currently VERY low on songs. Concider suggesting one with ' + prefix + 'videoSongSuggestions [link]'
+				});
+				break;
+			case 'delNext':
+				if (userID == gID){
+					bot.deleteMessage({
+						channelID: channelID,
+						messageID: prevEvtID
+					});
+					delNextChannel = channelID
+					someDelArray.push(userID)
+				}
 				break;
 			case 'joinFollowers':
 				if (serverID == '511698216199258112'){
@@ -1227,7 +1258,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				let usrID = userID;
 				bot.sendMessage({
 					to: userID,
-					message: 'Our current commands are as follows. \n \n**Entertainment** :tada: \nping - responds "Pong!", enjoy yourself some ping pong. \nmusic - displays the lyrics of a random song from a list \nportalCat - displays a fun infinite gif of a cat jumping into a portal. \nchangeMyNickname - changes your nickname to a random nickname from a list. \nknockknock - responds to YOUR knock knock joke. \n \n**Useful** :paperclip: \nguildLink - gives the invite for the GCD help server. \nhelp - displays this, duh. \nrcCM [\@role] [cmd] - Allows a user to join [\@role] by saying the prefix + [cmd]. To run the command, your highest role must have admin, and must be higher than the role you are trying to give access to. \ncreatePoll - Follow instruction to create a poll. \npollOptions - displays the options to the current poll. \npollResults - displays the current results of the poll. \naddCustomResponse [custom] - allows users to add a custom response to a poll. \nvote [optionNum] - votes for the option number given. \nclosePoll - Can only be done by poll creator, closes poll and displas results. \nall that apply" polls. createAtappPoll, pollAtappOptions, addCustomAtappResponse [custom], pollAtappResults, voteAtapp [vote], clostAtappPoll. These work the same as regular polls, but users can choose multiple responses \nCustomCommand [1/2/3] - allows users to create custom commands by following instrucions. \nfeedback - sends feedback to the creator. suggest - sends a suggestion to the creator.'
+					message: 'Our current commands are as follows. \n \n**Entertainment** :tada: \nping - responds "Pong!", enjoy yourself some ping pong. \nmusic - displays the lyrics of a random song from a list \nportalCat - displays a fun infinite gif of a cat jumping into a portal. \nchangeMyNickname - changes your nickname to a random nickname from a list. \nknockknock - responds to YOUR knock knock joke. \nrandVideo - gives a link to a random video. \nrandMusic - gives a link to a random song. \nvideoSongSuggestions - suggest your favorite video/song for randVideo/randMusic \n \n**Useful** :paperclip: \nguildLink - gives the invite for the GCD help server. \nhelp - displays this, duh. \nrcCM [\@role] [cmd] - Allows a user to join [\@role] by saying the prefix + [cmd]. To run the command, your highest role must have admin, and must be higher than the role you are trying to give access to. \ncreatePoll - Follow instruction to create a poll. \npollOptions - displays the options to the current poll. \npollResults - displays the current results of the poll. \naddCustomResponse [custom] - allows users to add a custom response to a poll. \nvote [optionNum] - votes for the option number given. \nclosePoll - Can only be done by poll creator, closes poll and displas results. \nall that apply" polls. createAtappPoll, pollAtappOptions, addCustomAtappResponse [custom], pollAtappResults, voteAtapp [vote], clostAtappPoll. These work the same as regular polls, but users can choose multiple responses \nCustomCommand [1/2/3] - allows users to create custom commands by following instrucions. \nfeedback - sends feedback to the creator. suggest - sends a suggestion to the creator.'
 				}, function(err, res){
 					if (err) throw err;
 					bot.sendMessage({
