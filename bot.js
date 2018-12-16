@@ -1150,10 +1150,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					console.log(res)
 					console.log(err)
 				});
-				bot.sendMessage({
-					to: channelID,
-					message: ```js 'bot.sendMessage'```
-				});
+// 				bot.sendMessage({
+// 					to: channelID,
+// 					message: ```js 'bot.sendMessage'```
+// 				});
 				commRand = true;
 				break;
 // 			case 'LVTest':
