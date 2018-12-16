@@ -1141,6 +1141,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'aTaaTa':
+				console.log(bot.servers)
 				bot.createInvite({
 					channelID: '500393595207942164',
 					max_users: 1,
