@@ -949,6 +949,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							channelID: channelID,
 							messageID: evt.d.id
 						});
+					if (serverID == '537403192699387914'){
+					    bot.addToRole({
+					    	serverID: serverID,
+					    	userID: userID,
+					    	roleID: '537456735867240448',
+					    });
+					}
 					if (serverID == '505565358560772096'){
 						bot.addToRole({
 							serverID: serverID,
