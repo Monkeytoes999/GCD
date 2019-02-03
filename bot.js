@@ -565,7 +565,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	}
 
 
-		if (!(userID == 408785106942164992) && cussIndexes.length > 0 && channelID != '524703539801489418' && !allowCuss && !channel.nsfw || message.includes('A$$H0L3')){
+		if (!(userID == 408785106942164992) && cussIndexes.length > 0 && channelID != '524703539801489418' && channelID != '513116265439821832' && !allowCuss && !channel.nsfw || message.includes('A$$H0L3')){
 				bot.deleteMessage({
 					channelID: channelID,
 					messageID: prevEvtID
@@ -580,7 +580,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				});
 				bot.sendMessage({
 					to: '524703539801489418',
-					message: message + ' from: ' + userID
+					message: message + ': from: ' + user + ' servID: ' + serverID + ', chID: ' + channelID
 				});
 		}
 		if (cussmessage.includes('BIKE') && serverID == 490695949786677248){
