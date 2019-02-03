@@ -580,7 +580,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				});
 				bot.sendMessage({
 					to: '524703539801489418',
-					message: message
+					message: message + ' from: ' + userID
 				});
 		}
 		if (cussmessage.includes('BIKE') && serverID == 490695949786677248){
