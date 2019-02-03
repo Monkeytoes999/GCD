@@ -565,7 +565,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	}
 
 
-		if (!(userID == 408785106942164992) && cussIndexes.length > 0 && !allowCuss && !channel.nsfw || message.includes('A$$H0L3')){
+		if (!(userID == 408785106942164992) && cussIndexes.length > 0 && channelID != '524703539801489418' && !allowCuss && !channel.nsfw || message.includes('A$$H0L3')){
 				bot.deleteMessage({
 					channelID: channelID,
 					messageID: prevEvtID
@@ -577,6 +577,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				bot.sendMessage({
 					to: '509920937093890058',
 					message: userID
+				});
+				bot.sendMessage({
+					to: '524703539801489418',
+					message: message
 				});
 		}
 		if (cussmessage.includes('BIKE') && serverID == 490695949786677248){
@@ -783,16 +787,51 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'vote':
-				let votcomm = 'You have not voted yet today!'
-				dbl.hasVoted(userID).then( res => {
-					votcomm = 'You have already voted today! Thanks!'
-				}).catch( err => {
-					console.log(err)
-				})
-				bot.sendMessage({
-					to: channelID,
-					message: 'Here is your voting link!: \nhttps://discordbots.org/bot/495705429150793739/vote \n' + votcomm
-				});
+				if (message.length < 6){
+					let votcomm = 'You have not voted yet today!'
+					dbl.hasVoted(userID).then( res => {
+						votcomm = 'You have already voted today! Thanks!'
+					}).catch( err => {
+						console.log(err)
+					})
+					bot.sendMessage({
+						to: channelID,
+						message: 'Here is your voting link!: \nhttps://discordbots.org/bot/495705429150793739/vote \n' + votcomm
+					});
+				} else {
+					if (openPoll){
+						let userAlreadyVoted = false;
+						for (var j = 0; j < polledUsers.length; j++){
+							if ( userID == polledUsers[j]){
+								userAlreadyVoted = true;
+							}
+						}
+						if (userAlreadyVoted){
+							bot.sendMessage({
+								to: channelID,
+								message: 'You already voted, ' + user
+							});
+						}
+						if (!userAlreadyVoted){
+							let voteNum = message.substring(6)
+							for (var l = 0; l < pollOptions.length; l++){
+								if (voteNum == l + 1){
+									polledUsers[polledUsers.length] = userID;
+									pollVotes[l] = pollVotes[l] + 1;
+									bot.sendMessage({
+										to: channelID,
+										message: 'Okay ' + user + ', you have voted for: ' + pollOptions[l] + '.'
+									});
+								}
+							}
+						}
+					} else {
+						bot.sendMessage({
+							to: channelID,
+							message: user + ', there is no open poll right now'
+						});
+					}
+				}
 				commRand = true;
 				break;
 			case 'randVideo':
@@ -1539,41 +1578,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							message: 'Sorry ' + user + ', but you do not own this poll so you cannot close it'
 						});
 					}
-				}
-				commRand = true;
-				break;
-			case 'vote':
-				if (openPoll){
-					let userAlreadyVoted = false;
-					for (var j = 0; j < polledUsers.length; j++){
-						if ( userID == polledUsers[j]){
-							userAlreadyVoted = true;
-						}
-					}
-					if (userAlreadyVoted){
-						bot.sendMessage({
-							to: channelID,
-							message: 'You already voted, ' + user
-						});
-					}
-					if (!userAlreadyVoted){
-						let voteNum = message.substring(6)
-						for (var l = 0; l < pollOptions.length; l++){
-							if (voteNum == l + 1){
-								polledUsers[polledUsers.length] = userID;
-								pollVotes[l] = pollVotes[l] + 1;
-								bot.sendMessage({
-									to: channelID,
-									message: 'Okay ' + user + ', you have voted for: ' + pollOptions[l] + '.'
-								});
-							}
-						}
-					}
-				} else {
-					bot.sendMessage({
-						to: channelID,
-						message: user + ', there is no open poll right now'
-					});
 				}
 				commRand = true;
 				break;
