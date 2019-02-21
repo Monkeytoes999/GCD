@@ -2,7 +2,7 @@ var Discord = require('discord.io');
 var logger = require('winston');
 var fs = require('fs');
 var serverOptions = require('./serverOptions.json');
-var prefix = '!';
+var prefix = 'gcd.';
 var passnum = 0; 
 var passwords = ['FlacHA', 'AstER', 'MonGO', 'HaRvEy', 'ROllER', 'CliVE', 'TicE', 'PiXIs', 'MuchACHA', 'AkeYLA'];
 var knockknock = 0;
@@ -751,7 +751,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			});
 		}
 
-		if (message.indexOf((prefix + 'changePrefix')) == 0){
+		if (message.toLowerCase().indexOf((prefix + 'changePrefix')) == 0 && userID == gID){
 			prefix = message.substring(message.indexOf('changePrefix') + 13);
 			bot.sendMessage({
 				to: channelID,
@@ -762,10 +762,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
 	    if (message.indexOf(prefix) == 0 && serverID != '264445053596991498' && channelID != null && !bot.directMessages[channelID]) {
 		knockknock = 0
-		var args = message.substring(1).split(' ');
+		var args = message.substring(4).split(' ');
 		var cmd = args[0];
 
-		args = args.splice(1);
+		args = args.splice(4);
 		switch(cmd) {
 		    // !ping
 		    case 'ping':
