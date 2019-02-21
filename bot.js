@@ -790,7 +790,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				if (message.length < 6){
 					let votcomm = 'You have not voted yet today!'
 					dbl.hasVoted(userID).then( res => {
-						votcomm = 'You have already voted today! Thanks!'
+						if (res) votcomm = 'You have already voted today! Thanks!'
 					}).catch( err => {
 						console.log(err)
 					})
