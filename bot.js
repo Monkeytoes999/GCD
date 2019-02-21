@@ -1506,7 +1506,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'createPoll':
-				if (message == "!createPoll" && !someArray.includes(userID) && !openPoll) {
+				if (message.toLowerCase() == "gcd.createpoll" && !someArray.includes(userID) && !openPoll) {
 					pollOpener = userID;
 				  someArray.push(userID)
 				  bot.sendMessage({
