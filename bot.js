@@ -1429,7 +1429,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			case 'help':
 				let usrID = userID;
-				if (message.length == 5){
+				if (message.length == 9){
 					bot.sendMessage({
 						to: userID,
 						message: 'Our current commands are as follows. \n \n**Entertainment** :tada: \nping - responds "Pong!", enjoy yourself some ping pong. \nmusic - displays the lyrics of a random song from a list \nportalCat - displays a fun infinite gif of a cat jumping into a portal. \nchangeMyNickname - changes your nickname to a random nickname from a list. \nknockknock - responds to YOUR knock knock joke. \nrandVideo - gives a link to a random video. \nrandSong - gives a link to a random song. \nvideoSongSuggestions - suggest your favorite video/song for randVideo/randSong, all suggestions must be English, curse free, and less than 15 minutes long. \n \n**Useful** :paperclip: \nguildLink - gives the invite for the GCD help server. \nhelp - displays this, duh. \nhelp [command] - displays information about the given command. \nrcCM [\@role] [cmd] - Allows a user to join [\@role] by saying the prefix + [cmd]. To run the command, your highest role must have admin, and must be higher than the role you are trying to give access to. \ncreatePoll - Follow instruction to create a poll. \npollOptions - displays the options to the current poll. \npollResults - displays the current results of the poll. \naddCustomResponse [custom] - allows users to add a custom response to a poll. \nvote [optionNum] - votes for the option number given. \nclosePoll - Can only be done by poll creator, closes poll and displas results. \nall that apply polls, createAtappPoll, pollAtappOptions, addCustomAtappResponse [custom], pollAtappResults, voteAtapp [vote], closeAtappPoll. These work the same as regular polls, but users can choose multiple responses \ncustomCommand[1/2/3] - allows users to create custom commands by following instructions. \nfeedback - sends feedback to the creator. \nsuggest - sends a suggestion to the creator.'
@@ -1447,7 +1447,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						});
 					}
 				} else {
-					let commandHelper = message.substring(6).toLowerCase();
+					let commandHelper = message.substring(10).toLowerCase();
 					let commandCheck = 0;
 					let commandCheckFound = false;
 					while (commandCheck < commands.length && !commandCheckFound){
