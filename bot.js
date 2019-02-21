@@ -1226,26 +1226,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'test':
-				if (userID = gID){
-					bot.ban({
-						serverID:'505565358560772096',
-						userID: '275270122082533378'
-					});
-					bot.ban({
-						serverID:'505565358560772096',
-						userID: '495703108912021545'
-					});
-					bot.ban({
-						serverID:'505565358560772096',
-						userID: '408785106942164992'
-					});
-					bot.removeFromRole({
-						serverID: '505565358560772096',
-						userID: '336507246227881984',
-						roleID: '507688970717495296'
-					});
-						
+				let voteed = false
+				if(dbl.bots."495705429150793739".check(userID) == 1){
+					voteed = true
 				}
+				bot.sendMessage({
+					to: channelID,
+					message: voteed
+				});
 				commRand = true;
 				break;
 			case 'INVVV':
