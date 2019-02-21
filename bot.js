@@ -787,7 +787,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'vote':
-				if (message.length < 6){
+				if (message.length < 9){
 					let votcomm = 'You have not voted yet today!'
 					dbl.hasVoted(userID).then( res => {
 						if (res) votcomm = 'You have already voted today! Thanks!'
