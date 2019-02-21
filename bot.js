@@ -794,10 +794,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					}).catch( err => {
 						console.log(err)
 					})
-					bot.sendMessage({
-						to: channelID,
-						message: 'Here is your voting link!: \nhttps://discordbots.org/bot/495705429150793739/vote \n' + votcomm
-					});
+					setTimeout(() => {
+						bot.sendMessage({
+							to: channelID,
+							message: 'Here is your voting link!: \nhttps://discordbots.org/bot/495705429150793739/vote \n' + votcomm
+						});
+					}, 1000)
 				} else {
 					if (openPoll){
 						let userAlreadyVoted = false;
@@ -1226,13 +1228,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'test':
-				let voteed = false
-				if(dbl.bots["495705429150793739"].check(userID) == 1){
-					voteed = true
-				}
 				bot.sendMessage({
 					to: channelID,
-					message: voteed
+					message: "Currently nothing to show."
 				});
 				commRand = true;
 				break;
