@@ -1414,7 +1414,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			case 'setScDay':
 				if (message.length = 13 && userID == gID){
-					scDay = message.substring(15);
+					scDay = message.substring(12);
 					bot.sendMessage({
 						to: channelID,
 						message: 'Ok, today is now a ' + scDay + ' day.'
