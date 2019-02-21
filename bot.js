@@ -1227,7 +1227,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			case 'test':
 				let voteed = false
-				if(dbl.bots."495705429150793739".check(userID) == 1){
+				if(dbl.bots["495705429150793739"].check(userID) == 1){
 					voteed = true
 				}
 				bot.sendMessage({
