@@ -367,7 +367,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			bot.setPresence({
 				game: {
 					type: 0,
-					name: 'in ' + Object.keys(bot.servers).length + ' servers!'
+					name: 'in ' + Object.keys(bot.servers).length + ' servers! gcd.help | gcd.guildLink'
 				}
 			}, function(err, res){
 				if (err) throw err
@@ -1146,7 +1146,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					bot.setPresence({
 						game: {
 							type: 0,
-							name: 'in ' + Object.keys(bot.servers).length + ' servers!'
+							name: 'in ' + Object.keys(bot.servers).length + ' servers! gcd.help | gcd.guildLink'
 						}
 					}, function(err, res){
 						if (err) throw err
