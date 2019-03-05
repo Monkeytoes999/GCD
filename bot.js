@@ -1232,6 +1232,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: "Currently nothing to show."
 				});
+				console.log('oof oof oof oof oof oof \n oof oof oof oof')
+				console.log(message)
 				commRand = true;
 				break;
 			case 'INVVV':
