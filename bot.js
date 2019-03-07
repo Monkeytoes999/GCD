@@ -800,8 +800,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						let resMesIDs = []
 						let resMesIDnum = 0;
 						while (resMesIDnum < parseInt(message.substring(10))){
-							resMesIDnum = resMesIDnum
 						       resMesIDs.push(res[resMesIDnum].id)
+							resMesIDnum = resMesIDnum + 1
 						}
 						console.log(res, resMesIDs)
 						bot.deleteMessages({
