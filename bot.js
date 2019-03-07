@@ -1230,7 +1230,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'test':
 				bot.sendMessage({
 					to: channelID,
-					message: "Currently nothing to show."
+					message: "This should have deleted the last 3 messages in this channel"
+				});
+				bot.getMessages({
+					channelID: channelID,
+					limit: 4
+				}, function(err, res){
+					console.log(res)
+// 					bot.deleteMessages({
+// 						channelID: channelID,
+// 						messages: res
+// 					})
 				});
 				console.log(message.search('\n') > -1)
 				commRand = true;
