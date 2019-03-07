@@ -1236,7 +1236,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					console.log(res, resMesIDs)
 					bot.deleteMessages({
 						channelID: channelID,
-						messages: resMesIDs
+						messageIDs: resMesIDs
 					})
 					bot.sendMessage({
 						to: channelID,
