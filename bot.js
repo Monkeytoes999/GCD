@@ -792,18 +792,27 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						to: channelID,
 						message: 'Please include the number of messages to purge (gcd.purge [num])'
 					});
-				} else {
+				} else if (parseInt(message.substring(10)) > 100){
+					bot.sendMessage({
+						to: channelID,
+						message: 'The max number of messages to purge is 100'
+					});
+				} else	{
 					bot.getMessages({
 						channelID: channelID,
-						limit: parseInt(message.substring(10)) +1
+						limit: parseInt(message.substring(10)),
+						before: prevEvtID
 					}, function(err, res){
 						let resMesIDs = []
 						let resMesIDnum = 0;
-						while (resMesIDnum < parseInt(message.substring(10)) +1){
+						while (resMesIDnum < parseInt(message.substring(10))){
 						       resMesIDs.push(res[resMesIDnum].id)
-							resMesIDnum = resMesIDnum + 1
+							resMesIDnum = resMesIDnum
 						}
-						console.log(res, resMesIDs)
+						bot.deleteMessage({
+							channelID: channelID,
+							messageID: prevEvtID
+						});
 						bot.deleteMessages({
 							channelID: channelID,
 							messageIDs: resMesIDs
@@ -1793,7 +1802,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				bot.simulateTyping(channelID);
 				bot.deleteMessage({
 						channelID: channelID,
-						messageID: prevEvtID
+						messageID: prevEvtId
 					});
 				commRand = true;
 				break;
