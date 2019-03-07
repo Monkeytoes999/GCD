@@ -795,7 +795,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				} else {
 					bot.getMessages({
 						channelID: channelID,
-						limit: parseInt(message.substring(10))
+						limit: parseInt(message.substring(10) + 1)
 					}, function(err, res){
 						let resMesIDs = []
 						let resMesIDnum = 0;
