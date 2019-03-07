@@ -1232,7 +1232,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					channelID: channelID,
 					limit: 4
 				}, function(err, res){
-					let resMesIDs = [res[1].id, res[2].id, res[3].id, res[4].id]
+					let resMesIDs = [res[0].id, res[1].id, res[2].id, res[3].id]
 					console.log(res, resMesIDs)
 					bot.deleteMessages({
 						channelID: channelID,
