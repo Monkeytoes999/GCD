@@ -795,11 +795,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				} else {
 					bot.getMessages({
 						channelID: channelID,
-						limit: parseInt(message.substring(10) + 1)
+						limit: parseInt(message.substring(10)) +1
 					}, function(err, res){
 						let resMesIDs = []
 						let resMesIDnum = 0;
-						while (resMesIDnum < parseInt(message.substring(10)+1)){
+						while (resMesIDnum < parseInt(message.substring(10)) +1){
 						       resMesIDs.push(res[resMesIDnum].id)
 							resMesIDnum = resMesIDnum + 1
 						}
@@ -811,6 +811,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						bot.sendMessage({
 							to: channelID,
 							message: parseInt(message.substring(10)) + ' messages deleted.'
+						}, function(errr, ress){
+							setTimeout(() => {
+								bot.deleteMessage({
+									channelID: channelID,
+									messageID: ress.id
+								});
+							}, 2000);
 						});
 					});
 				}
