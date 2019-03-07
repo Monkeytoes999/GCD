@@ -798,6 +798,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						message: 'The max number of messages to purge is 100'
 					});
 				} else	{
+					let purgeMess = prevEvtID
 					bot.getMessages({
 						channelID: channelID,
 						limit: parseInt(message.substring(10)),
@@ -809,10 +810,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						       resMesIDs.push(res[resMesIDnum].id)
 							resMesIDnum = resMesIDnum + 1
 						}
-						bot.deleteMessage({
-							channelID: channelID,
-							messageID: prevEvtID
-						});
 						bot.deleteMessages({
 							channelID: channelID,
 							messageIDs: resMesIDs
@@ -825,6 +822,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 								bot.deleteMessage({
 									channelID: channelID,
 									messageID: ress.id
+								});
+								bot.deleteMessage({
+									channelID: channelID,
+									messageID: purgeMess
 								});
 							}, 2000);
 						});
