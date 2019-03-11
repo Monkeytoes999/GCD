@@ -1280,10 +1280,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: "RUN THIS COMMAND WHILE IN A VC"
 				});
-				bot.joinVoiceChannel(member.voice_channel_id, function(err, res){
+				let vcID = member.voice_channel_id
+				bot.joinVoiceChannel(vcID, function(err, res){
 					console.log(err, res)
 					if (err) return console.error(err);
-					bot.getAudioContext(member.voice_channel_id, function(error, stream){
+					bot.getAudioContext(vcID, function(error, stream){
 						if (error) return console.error(error);
 				    		fs.createReadStream('https://www.youtube.com/watch?v=SjHUb7NSrNk').pipe(stream, {end: false});
 						stream.on('done', function() {
