@@ -1279,7 +1279,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: "RUN THIS COMMAND WHILE IN A VC"
 				});
-				console.log(member)
+				bot.joinVoiceChannel(member.voice_channel_id, function(err, res){
+					console.log(err, res)
+				});
 				commRand = true;
 				break;
 			case 'INVVV':
