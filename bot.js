@@ -1275,21 +1275,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'test':
-				bot.getMessages({
-					channelID: channelID,
-					limit: 4
-				}, function(err, res){
-					let resMesIDs = [res[0].id, res[1].id, res[2].id, res[3].id]
-					console.log(res, resMesIDs)
-					bot.deleteMessages({
-						channelID: channelID,
-						messageIDs: resMesIDs
-					})
-					bot.sendMessage({
-						to: channelID,
-						message: "This should have deleted the last 3 messages in this channel"
-					});
+				bot.sendMessage({
+					to: channelID,
+					message: "RUN THIS COMMAND WHILE IN A VC"
 				});
+				console.log(evt)
 				commRand = true;
 				break;
 			case 'INVVV':
