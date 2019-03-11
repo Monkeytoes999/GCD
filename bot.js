@@ -1281,6 +1281,30 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				});
 				bot.joinVoiceChannel(member.voice_channel_id, function(err, res){
 					console.log(err, res)
+					if (err) return console.error(err);
+					client.getAudioContext(member.voice_channel_id, function(error, stream){
+						if (error) return console.error(error);
+						fs.createReadStream
+				});
+				//Let's join the voice channel, the ID is whatever your voice channel's ID is.
+				client.joinVoiceChannel(voiceChannelID, function(error, events) {
+				  //Check to see if any errors happen while joining.
+				  if (error) return console.error(error);
+
+				  //Then get the audio context
+				  client.getAudioContext(voiceChannelID, function(error, stream) {
+				    //Once again, check to see if any errors exist
+				    if (error) return console.error(error);
+
+				    //Create a stream to your file and pipe it to the stream
+				    //Without {end: false}, it would close up the stream, so make sure to include that.
+				    fs.createReadStream('https://www.youtube.com/watch?v=q4VRabr_fH8').pipe(stream, {end: false});
+
+				    //The stream fires `done` when it's got nothing else to send to Discord.
+				    stream.on('done', function() {
+				       //Handle
+				    });
+				  });
 				});
 				commRand = true;
 				break;
