@@ -1284,7 +1284,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					if (err) return console.error(err);
 					bot.getAudioContext(member.voice_channel_id, function(error, stream){
 						if (error) return console.error(error);
-				    		fs.createReadStream('https://www.youtube.com/watch?v=q4VRabr_fH8').pipe(stream, {end: false});
+				    		fs.createReadStream('https://www.youtube.com/watch?v=SjHUb7NSrNk').pipe(stream, {end: false});
 						stream.on('done', function() {
 						});
 					});
