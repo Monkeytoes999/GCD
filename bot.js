@@ -1279,7 +1279,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					to: channelID,
 					message: "RUN THIS COMMAND WHILE IN A VC"
 				});
-				console.log(evt)
+				console.log(member)
 				commRand = true;
 				break;
 			case 'INVVV':
