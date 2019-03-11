@@ -787,6 +787,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				});
 				commRand = true;
 				break;
+			case 'leaveVC':
+				bot.leaveVoiceChannel(bot.servers[serverID].members['495705429150793739'].voice_channel_id);
+				commRand = true;
+				break;
 			case 'purge':
 				if (message.length < 11 || !(message.substring(9, 10) == ' ')){
 					bot.sendMessage({
