@@ -1282,7 +1282,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				bot.joinVoiceChannel(member.voice_channel_id, function(err, res){
 					console.log(err, res)
 					if (err) return console.error(err);
-					client.getAudioContext(member.voice_channel_id, function(error, stream){
+					bot.getAudioContext(member.voice_channel_id, function(error, stream){
 						if (error) return console.error(error);
 				    		fs.createReadStream('https://www.youtube.com/watch?v=q4VRabr_fH8').pipe(stream, {end: false});
 						stream.on('done', function() {
