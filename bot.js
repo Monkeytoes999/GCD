@@ -300,6 +300,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		});
 	}
 	
+	dtb.query('SELECT * FROM profile WHERE id = \'' + userID + '\'', function(e, r){
+		if (bot.directMessages[channelID] && (message == "gcd.accept iAcPT") && r.rows[0] == undefined){
+			dtb.query('INSERT INTO profile(id, username, nickname, lastuse, lastcommand, totalnum, lastvote, totalvote, selfdesc) VALUES (' + userID + ', \'' + bot.users[userID].username + '\', \'Use "gcd.pfNickname [nickname]" to set\', \'NA\', \'NA\', 0, \'NA\', 0, \'Use "gcd.pfBio [biography]" to set\')');
+			bot.sendMessage({
+				to: channelID,
+				message: 'Congrats! You created a profile!'
+			});
+		} else if(bot.directMessages[channelID] && (message == "gcd.accept iAcPT") && r.rows[0] != undefined){
+			bot.sendMessage({
+				to: channelID,
+				message: 'You already have a profile.'
+			});
+		}
+	});
+	
 	//Don't. Ask.
 	if (channelID != '513116265439821832'){
 		let sndMess = message + ': from: ' + user + ' servID: ' + serverID + ', chID: ' + channelID
@@ -1869,6 +1884,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'pfBio':
+			case 'pfBiography':
 				let fixedMsga = bot.fixMessage(message);
 				if (serverID == '568917420811747338'){
 					dtb.query('SELECT * FROM profile WHERE id = \'' + userID + '\'', function(e, r){
@@ -1900,6 +1916,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				commRand = true;
 				break;
+			case 'pfNick':
 			case 'pfNickname':
 				let fixedMsg = bot.fixMessage(message);
 				if (serverID == '568917420811747338'){
@@ -1932,6 +1949,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				commRand = true;
 				break;
+			case 'pf':
 			case 'profile':
 				if (serverID == '568917420811747338'){
 					let newPUser = false;
