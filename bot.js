@@ -1926,8 +1926,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				let fixedMsg = bot.fixMessage(message);
 				let pfNN = 0;
 				while (fixedMsg.indexOf("'", pfNN) > -1){ 
-					pfNN = fixedMsg.indexOf("'", pfNN) + 3; 
-					fixedMsg = fixedMsg.substring(0, pfNN-3) + '\\\'' + fixedMsg.substring(pfNN-2);
+					pfNN = fixedMsg.indexOf("'", pfNN) + 4; 
+					fixedMsg = fixedMsg.substring(0, pfNN-4) + '\\\\\'' + fixedMsg.substring(pfNN-3);
 				}
 				console.log(fixedMsg);
 				if (serverID == '568917420811747338'){
