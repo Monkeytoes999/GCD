@@ -1887,7 +1887,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'pfBio':
 				pfMsgLength = 9;
 			case 'pfBiography':
-				pfMsgLength = (pfMsgLength + 2);;
+				pfMsgLength = (pfMsgLength + 1);;
 				let fixedMsga = bot.fixMessage(message);
 				let pfNNa = 0;
 				while (fixedMsga.indexOf("'", pfNNa) > -1){ 
