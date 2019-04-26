@@ -1929,6 +1929,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					pfNN = fixedMsg.indexOf("'", pfNN) + 3; 
 					fixedMsg = fixedMsg.substring(0, pfNN-3) + '\\\'' + fixedMsg.substring(pfNN-2);
 				}
+				console.log(fixedMsg);
 				if (serverID == '568917420811747338'){
 					dtb.query('SELECT * FROM profile WHERE id = \'' + userID + '\'', function(e, r){
 						if (r.rows[0] != undefined){
