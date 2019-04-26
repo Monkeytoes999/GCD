@@ -1889,6 +1889,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'pfBiography':
 				pfMsgLength = (pfMsgLength + 1);;
 				let fixedMsga = bot.fixMessage(message);
+				let pfNNa = 0;
+				while (fixedMsga.indexOf("'", pfNNa) > -1){ 
+					pfNNa = fixedMsga.indexOf("'", pfNNa) + 2; 
+					fixedMsga = fixedMsga.substring(0, pfNNa-2) + '‘' + fixedMsga.substring(pfNNa-1);
+				}
 				if (serverID == '568917420811747338'){
 					dtb.query('SELECT * FROM profile WHERE id = \'' + userID + '\'', function(e, r){
 						if (r.rows[0] != undefined){
@@ -1926,8 +1931,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				let fixedMsg = bot.fixMessage(message);
 				let pfNN = 0;
 				while (fixedMsg.indexOf("'", pfNN) > -1){ 
-					pfNN = fixedMsg.indexOf("'", pfNN) + 5; 
-					fixedMsg = fixedMsg.substring(0, pfNN-5) + '\\\\\\\'' + fixedMsg.substring(pfNN-4);
+					pfNN = fixedMsg.indexOf("'", pfNN) + 2; 
+					fixedMsg = fixedMsg.substring(0, pfNN-2) + '‘' + fixedMsg.substring(pfNN-1);
 				}
 				console.log(fixedMsg);
 				if (serverID == '568917420811747338'){
