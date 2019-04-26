@@ -86,7 +86,7 @@ var randVideo = ['https://m.youtube.com/watch?v=W9gxFkOz2_4'];
 var commRand = false;
 var commands = ['ping', 'music', 'portalCat', 'changeMyNickname', 'knockknock', 'randVideo', 'randSong', 'videoSongSuggestions', 'guildLink', 'help', 'rcCM', 'createPoll', 'pollOptions', 'pollResults', 'addCustomResponse', 'vote', 'closePoll', 'createAtappPoll', 'pollAtappOptions', 'addCustomatAtappResponse', 'pollAtappResults', 'votAtapp', 'closeAtapp', 'customCommand', 'feedback', 'suggest', 'userInfo', 'test', 'getChannelID', 'tto', 'findRoleID', 'getServerID', 'inviteInfo', 'purge','gcd.toggleNSFW'];
 var commandHelp = ['Replys "Pong!", perfect for a game of never-ending ping pong.', 'Replys with the lyrics of a random song.', 'Replys with an animated emoji of a cat jumping into a portal.', 'Changes your nickname to a random nickname from a list.', 'Replys to YOUR knock-knock joke.', 'Replys with a link to a user-suggested video.', 'Replys with a link to a user-suggested song.', 'Sends your video/song suggestion to the owner for review. \nSuggestions must be (mainly) English, curse-free, and under 15 minutes long.', 'Replys with an invite to the GCD Support Server.', 'There are two ways to use this command. \nhelp: DMs you a complete list of commands and descriptions. \nhelp [command]: Replys with a description of that command.', 'Usage: rcCM [@role] [cmd] \nAllows users to join/leave the mentioned role by saying ' + prefix + 'cmd \nTo run the command, your highest role must have admin/manage roles, and must be higher than the role you are trying to give access to.', 'Follow directions after using this command to create a poll users can respond to.', 'Replys with the options to the current poll.', 'Replys with the current results of the current poll.', 'Usage: addCustomResponse [custom] \nAllows you to add a custom response to a poll.', 'Usage: vote [optionNum] \nAdds your vote to the option specified, you can only vote once per poll.', 'Can only be done by the poll opener, closes the current poll.', 'After using this command, follow directions to create an \'All that apply\' poll.', 'Replys with the options for the current \'All that apply\' poll.', 'Usage: addCustomAtappResponse [custom] \nAllows you to add a custom response to an \'All that apply\' poll.', 'Replys with the current results for the current \'All that apply\' poll.', 'Allows you to vote for an option in an \'All that apply\' poll. Can be used multiple times.', 'Allows the owner of an \'All that apply\' poll to close it.', 'Usage: customCommand[1/2/3] \nAllows users to create custom (temporary) commands by running the command and following instructions', 'Usage: feeback [feedback] \nSends your feedback to the creator.', 'Usage: suggest [suggestion] \nSends your suggestion to the creator.', 'Usage: useInfo [@user] \nReplys with information about the mentioned user.', 'Replys with a sample of code currently in development.', 'Replys with the ID of the current channel.', 'Usage: tto [input] \nRepeats the input back', 'Usage: findRoleID [@role] \nReplys with the ID of the mentioned role.', 'Replys with the ID of the current server.', 'Usage: inviteInfo [invite] \nReplys with info about the invite given.', 'Usage: purge [num] \nPurges the number of messages requested (This number does not include the gcd.purge message, which is also deleted)','Toggles the NSFW quality for the current channel. \nTo run the command, your highest role must have admin/manage channels.'];
-var pfMsgLength = '';
+var pfMsgLength = 15;
 
 //team blue 499003285106196480
 //team red 499003389955407872
@@ -283,7 +283,7 @@ bot.on('messageUpdate', function (oldMsgData, newMsgData, evt){
 
 bot.on('message', function (user, userID, channelID, message, evt) {
 	
-	
+	pfMsgLength = 15;
 	cussIndexes = [];
 	mistakenIndexes = [];
 	
@@ -1885,9 +1885,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 				break;
 			case 'pfBio':
-				pfMsgLength = 10;
+				pfMsgLength = 9;
 			case 'pfBiography':
-				pfMsgLength = 16;
+				pfMsgLength = (pfMsgLength + 1);;
 				let fixedMsga = bot.fixMessage(message);
 				if (serverID == '568917420811747338'){
 					dtb.query('SELECT * FROM profile WHERE id = \'' + userID + '\'', function(e, r){
@@ -1919,10 +1919,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				commRand = true;
 				break;
-			case 'pfNick':
-				pfMsgLength = 11;
 			case 'pfNickname':
-				pfMsgLength = 15;
+				pfMsgLength = 19;
+			case 'pfNick':
+				pfMsgLength = (pfMsgLength - 4);
 				let fixedMsg = bot.fixMessage(message);
 				if (serverID == '568917420811747338'){
 					dtb.query('SELECT * FROM profile WHERE id = \'' + userID + '\'', function(e, r){
