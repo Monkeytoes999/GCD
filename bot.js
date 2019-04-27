@@ -148,7 +148,7 @@ bot.on('ready', function (evt) {
 
 if (dblw.webhook != undefined){
 	dblw.webhook.on('ready', hook => {
-		console.log('Webhook running at https://${hook.hostname}:${hook.port}${hook.path}');
+		console.log('Webhook running at https://' + hook.hostname + ':' + hook.port + hook.path);
 	});
 	dblw.webhook.on('vote', vote => {
 		console.log(vote);
