@@ -122,7 +122,10 @@ var bot = new Discord.Client({
    autorun: true
 });
 const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.dtoken, bot);
+const dbl = new DBL(process.env.dtoken, bot, {
+	webhookPort: 5000,
+	webhookAuth: process.env.wtoken
+});
 
 const { Client } = require('pg');
 const dtb = new Client({
@@ -140,6 +143,13 @@ bot.on('ready', function (evt) {
 		to: '520394437461803010',
 		message: imback[Math.floor(Math.random() * imback.length)]
 	});
+});
+
+dbl.webhook.on('ready', hook => {
+	console.log('Webhook running at https://${hook.hostname}:${hook.port}${hook.path}');
+});
+dbl.webhook.on('vote', vote => {
+	console.log(vote);
 });
 
 bot.on('any', function(event) {
