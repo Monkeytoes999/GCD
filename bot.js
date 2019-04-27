@@ -145,12 +145,14 @@ bot.on('ready', function (evt) {
 	});
 });
 
-dbl.webhook.on('ready', hook => {
-	console.log('Webhook running at https://${hook.hostname}:${hook.port}${hook.path}');
-});
-dbl.webhook.on('vote', vote => {
-	console.log(vote);
-});
+if (dbl.webhook != undefined){
+	dbl.webhook.on('ready', hook => {
+		console.log('Webhook running at https://${hook.hostname}:${hook.port}${hook.path}');
+	});
+	dbl.webhook.on('vote', vote => {
+		console.log(vote);
+	});
+}
 
 bot.on('any', function(event) {
 	commRand = false
