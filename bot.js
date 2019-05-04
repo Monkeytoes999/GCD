@@ -1259,7 +1259,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				dbl.getBot().votes.then( votes => {
 // 					console.log(votes)
 // 				});
-				console.log(dbl.getBot().votes)
+				dbl.getBot().then (all => {
+					console.log(all)	
+				});
 				bot.sendMessage({
 					to: channelID,
 					message: "RUN THIS COMMAND WHILE IN A VC"
