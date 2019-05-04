@@ -1253,6 +1253,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				break;
 			//Test code.
 			case 'test':
+				console.log(dbl.getVotes());
 				bot.sendMessage({
 					to: channelID,
 					message: "RUN THIS COMMAND WHILE IN A VC"
