@@ -1259,7 +1259,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 // 				dbl.getBot().votes.then( votes => {
 // 					console.log(votes)
 // 				});
-				dbl.getBot("495705429150793739").votes.then(all => {
+				console.log(dbl.getBot().votes);
+				dbl.getBot("495705429150793739").then(all => {
 					console.log(all)	
 				}).catch( err => {
 					console.log(err)
