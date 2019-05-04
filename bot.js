@@ -1256,9 +1256,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				dbl.getVotes().then(votes => {
 				   console.log(votes)
 				});
-				dbl.getBot().votes.then( votes => {
-					console.log(votes)
-				});
+// 				dbl.getBot().votes.then( votes => {
+// 					console.log(votes)
+// 				});
 				console.log(dbl.getBot().votes)
 				bot.sendMessage({
 					to: channelID,
