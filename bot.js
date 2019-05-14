@@ -317,7 +317,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	
 	if (channelID == '577458194763218954'){
 		bot.sendMessage({
-			to: '562409536103776276',
+			to: '577687347336970240',
 			message: message
 		});
 	}
