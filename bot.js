@@ -315,6 +315,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		});
 	}
 	
+	if (channelID == '577458194763218954'){
+		bot.sendMessage({
+			to: '562409536103776276',
+			message: message
+		});
+	}
+	
 	dtb.query('SELECT * FROM profile WHERE id = \'' + userID + '\'', function(e, r){
 		if (bot.directMessages[channelID] && (message == "gcd.accept iAcPT") && r.rows[0] == undefined){
 			dtb.query('INSERT INTO profile(id, username, nickname, lastuse, lastcommand, totalnum, lastvote, totalvote, selfdesc) VALUES (' + userID + ', \'' + bot.users[userID].username + '\', \'Use "gcd.pfNickname [nickname]" to set\', \'NA\', \'NA\', 0, \'NA\', 0, \'Use "gcd.pfBio [biography]" to set\')');
