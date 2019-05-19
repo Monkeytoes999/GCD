@@ -315,17 +315,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		});
 	}
 	
-	if (evt.d.mentions[0] != undefined){
-		if (evt.d.mentions[0].id = '495705429150793739'){
+	var mtnT = 0
+	while (evt.d.mentions[mtnT] != undefined && channelID != '579459432933752832'){
+		if (evt.d.mentions[mtnT].id == '495705429150793739'){
 			let sndMessGCP = message + ': from: ' + user + ' servID: ' + serverID + ', chID: ' + channelID
 			bot.sendMessage({
 				to: '579459432933752832',
 				message: sndMessGCP
 			});
 		}
+		mtnT = mtnT + 1;
 	}
 	
-	if (channelID == '579459705852788765' && userID != '495705429150793739'){
+	if (channelID == '577687347336970240' && userID != '495705429150793739'){
 		let sndMessGCA = message + ': from: ' + user + ' servID: ' + serverID + ', chID: ' + channelID
 		bot.sendMessage({
 			to: '579459705852788765',
@@ -336,7 +338,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	if (channelID == '579459705852788765' && userID != '495705429150793739'){
 		let sndMessGCF = 'The following message was sent to you by Monkeytoes999: ' + message
 		bot.sendMessage({
-			to: '579459705852788765',
+			to: '577687347336970240',
 			message: sndMessGCF
 		});
 	}
