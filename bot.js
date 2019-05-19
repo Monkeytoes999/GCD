@@ -315,10 +315,29 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		});
 	}
 	
-	if (channelID == '577458194763218954'){
+	if (evt.d.mentions[0] != undefined){
+		if (evt.d.mentions[0].id = '495705429150793739'){
+			let sndMessGCP = message + ': from: ' + user + ' servID: ' + serverID + ', chID: ' + channelID
+			bot.sendMessage({
+				to: '579459432933752832',
+				message: sndMessGCP
+			});
+		}
+	}
+	
+	if (channelID == '579459705852788765' && userID != '495705429150793739'){
+		let sndMessGCA = message + ': from: ' + user + ' servID: ' + serverID + ', chID: ' + channelID
 		bot.sendMessage({
-			to: '577687347336970240',
-			message: message
+			to: '579459705852788765',
+			message: sndMessGCA
+		});
+	}
+
+	if (channelID == '579459705852788765' && userID != '495705429150793739'){
+		let sndMessGCF = 'The following message was sent to you by Monkeytoes999: ' + message
+		bot.sendMessage({
+			to: '579459705852788765',
+			message: sndMessGCF
 		});
 	}
 	
