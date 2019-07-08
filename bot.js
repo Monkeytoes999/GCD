@@ -602,7 +602,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		curses.splice(curses.length - 1, 1)
 		nonWordCurses.splice(nonWordCurses.length - 1, 1)
 	}
-	if (message == 'spamit ' + spamPassword){
+	if (message == 'gcd.spamit ' + spamPassword){
 				if(channelID == spamChannel && message.substring(11) == spamPassword && allowSpam && ((userID == 393586279964475393) || (userID == 495705429150793739))){
 					setTimeout(() => {
 						 bot.sendMessage({
