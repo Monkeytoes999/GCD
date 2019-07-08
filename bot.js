@@ -602,6 +602,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		curses.splice(curses.length - 1, 1)
 		nonWordCurses.splice(nonWordCurses.length - 1, 1)
 	}
+	if (message == 'spamit ' + spamPassword){
+				if(channelID == spamChannel && message.substring(11) == spamPassword && allowSpam && ((userID == 393586279964475393) || (userID == 495705429150793739))){
+					setTimeout(() => {
+						 bot.sendMessage({
+							 to: channelID,
+							 message: prefix + 'spamit ' + spamPassword
+						 });
+					}, 1000);
+				}
+				commRand = true;
+	}
 	if (!(bot.users[userID] == undefined)){
 	if (!(bot.users[userID].bot)){
 
@@ -1768,17 +1779,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				commRand = true;
 			break;
 			//BTW this no happen likely
-			case 'spamit':
-				if(channelID == spamChannel && message.substring(11) == spamPassword && allowSpam && ((userID == 393586279964475393) || (userID == 495705429150793739))){
-					setTimeout(() => {
-						 bot.sendMessage({
-							 to: channelID,
-							 message: prefix + 'spamit ' + spamPassword
-						 });
-					}, 1000);
-				}
-				commRand = true;
-				break;
 			//Makes it look like the bot is 'typing'
 			case 'confuse':
 				bot.simulateTyping(channelID);
